@@ -1,0 +1,80 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-font-family-base: 'Inter', sans-serif;
+
+  --ifm-navbar-background-color: transparent;
+  // --ifm-background-color: #eff8fe !important;
+  --ifm-color-primary: #0276c6;
+  --ifm-color-primary-dark: #026ab2;
+  --ifm-color-primary-darker: #0264a8;
+  --ifm-color-primary-darkest: #01538b;
+  --ifm-color-primary-light: #0282da;
+  --ifm-color-primary-lighter: #0288e4;
+  --ifm-color-primary-lightest: #0899fd;
+  --color-secondary: #343f52;
+  --ifm-navbar-link-color: var(--color-secondary);
+
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-background-color: #151f32 !important;
+  --ifm-card-background-color: #18273f;
+  --ifm-color-primary: #0276c6;
+  --ifm-color-primary-dark: #026ab2;
+  --ifm-color-primary-darker: #0264a8;
+  --ifm-color-primary-darkest: #01538b;
+  --ifm-color-primary-light: #0282da;
+  --ifm-color-primary-lighter: #0288e4;
+  --ifm-color-primary-lightest: #0899fd;
+  --color-secondary: #8094b6;
+  --ifm-navbar-link-color: var(--color-secondary);
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+* {
+  line-height: 1.5;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  left: -50vw;
+  top: -50vw;
+  width: 100vw;
+  height: 100vw;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(2, 118, 198, 30%) 0%,
+    transparent 50%
+  );
+}
+
+a {
+  font-weight: 500;
+}
+
+.navbar {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.card {
+  &__title {
+    font-size: 1.25rem;
+  }
+
+  &__body {
+    font-size: 0.875rem;
+    color: var(--color-secondary);
+  }
+}
