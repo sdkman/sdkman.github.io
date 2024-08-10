@@ -8,8 +8,6 @@
 :root {
   --ifm-font-family-base: 'Inter', sans-serif;
 
-  --ifm-navbar-background-color: transparent;
-  // --ifm-background-color: #eff8fe !important;
   --ifm-color-primary: #0276c6;
   --ifm-color-primary-dark: #026ab2;
   --ifm-color-primary-darker: #0264a8;
@@ -17,7 +15,12 @@
   --ifm-color-primary-light: #0282da;
   --ifm-color-primary-lighter: #0288e4;
   --ifm-color-primary-lightest: #0899fd;
+
+  --ifm-navbar-background-color: transparent;
+  --ifm-background-color: #ffffff !important;
+  --ifm-card-background-color: #f3f6fc;
   --color-secondary: #343f52;
+  --footer-background-color: #f3f6fc;
   --ifm-navbar-link-color: var(--color-secondary);
 
   --ifm-code-font-size: 95%;
@@ -26,8 +29,6 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-background-color: #151f32 !important;
-  --ifm-card-background-color: #18273f;
   --ifm-color-primary: #0276c6;
   --ifm-color-primary-dark: #026ab2;
   --ifm-color-primary-darker: #0264a8;
@@ -35,7 +36,11 @@
   --ifm-color-primary-light: #0282da;
   --ifm-color-primary-lighter: #0288e4;
   --ifm-color-primary-lightest: #0899fd;
+
+  --ifm-background-color: #151f32 !important;
+  --ifm-card-background-color: #18273f;
   --color-secondary: #8094b6;
+  --footer-background-color: #0c1421;
   --ifm-navbar-link-color: var(--color-secondary);
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
@@ -66,6 +71,16 @@ a {
 .navbar {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-sidebar {
+  filter: none;
+  height: 100vh;
+  background-color: var(--ifm-background-color);
+
+  &__backdrop {
+    height: 100vh;
+  }
 }
 
 .card {
