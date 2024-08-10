@@ -65,9 +65,8 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'docSidebar',
           label: 'Docs',
+          to: '/install',
           position: 'left',
         },
         {
