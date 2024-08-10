@@ -1,0 +1,13 @@
+.section {
+  &Title {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+
+    &Wrapper {
+      text-align: center;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}

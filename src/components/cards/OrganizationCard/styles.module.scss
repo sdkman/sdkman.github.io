@@ -1,0 +1,39 @@
+.card {
+  position: relative;
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &Title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1rem;
+  }
+
+  &Avatar {
+    margin-bottom: 1.5rem;
+  }
+
+  &Badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &Footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.75rem;
+
+    &Amount {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ifm-color-success);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.card {
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &Title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  &Avatar {
+    margin-bottom: 1.5rem;
+  }
+}

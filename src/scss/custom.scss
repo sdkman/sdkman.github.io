@@ -15,6 +15,7 @@
   --ifm-color-primary-light: #0282da;
   --ifm-color-primary-lighter: #0288e4;
   --ifm-color-primary-lightest: #0899fd;
+  --ifm-color-success: #17a349;
 
   --ifm-navbar-background-color: transparent;
   --ifm-background-color: #ffffff !important;
@@ -83,13 +84,26 @@ a {
   }
 }
 
+.avatar__photo {
+  object-fit: cover;
+}
+
+.button--rounded {
+  border-radius: 9999px;
+}
+
 .card {
+  height: 100%;
+
   &__title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    color: inherit;
   }
 
-  &__body {
+  &__body,
+  &__footer {
     font-size: 0.875rem;
     color: var(--color-secondary);
+    font-weight: 500;
   }
 }
