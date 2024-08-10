@@ -10,7 +10,7 @@ export default function Features() {
       <div className="container">
         <div className={styles.sectionList}>
           {features.map((item, idx) => {
-            return <FeatureCard {...item} />;
+            return <FeatureCard key={`featire-${idx}`} {...item} />;
           })}
         </div>
       </div>
