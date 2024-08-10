@@ -9,12 +9,11 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={clsx('container', styles.footerContent)}>
-        <Link href="https://www.commonhaus.org/">
-          <CommonHausFoundationLogo
-            className={styles.footerCommonHausFoundationLogo}
-            width={150}
-            height={32}
-          />
+        <Link
+          className={styles.footerCommonHausFoundationLink}
+          href="https://www.commonhaus.org/"
+        >
+          <CommonHausFoundationLogo width={150} height={32} />
         </Link>
 
         <div>
