@@ -8,16 +8,15 @@
     align-items: center;
 
     &Title {
-      font-size: 48px;
+      font-size: 3rem;
       font-weight: 700;
-      letter-spacing: 1.2;
       text-transform: capitalize;
       margin: 24px 0 16px 0;
       text-align: center;
     }
 
     &Text {
-      font-size: 18px;
+      font-size: 1.25rem;
       font-weight: 500;
       width: 100%;
       max-width: 768px;
@@ -27,7 +26,6 @@
 
     &Img {
       width: 250px;
-      // margin: 80px auto 0;
     }
   }
 
@@ -40,13 +38,17 @@
     &Title {
       font-size: 24px;
       font-weight: 700;
-      letter-spacing: 1.2;
       text-transform: capitalize;
     }
 
     &Text {
       text-align: center;
       color: var(--color-secondary);
+
+      > code {
+        display: inline-block;
+        margin-top: 0.5rem;
+      }
     }
   }
 }
