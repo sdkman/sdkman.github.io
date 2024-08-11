@@ -79,6 +79,8 @@ const config: Config = {
       logo: {
         alt: 'SDKMAN!',
         src: 'assets/img/logo.png',
+        width: 44,
+        height: 32,
       },
       items: [
         {

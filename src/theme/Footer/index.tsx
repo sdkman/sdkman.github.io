@@ -12,6 +12,7 @@ export default function Footer() {
         <Link
           className={styles.footerCommonHausFoundationLink}
           href="https://www.commonhaus.org/"
+          aria-label="CommonHaus Foundation"
         >
           <CommonHausFoundationLogo width={150} height={32} />
         </Link>

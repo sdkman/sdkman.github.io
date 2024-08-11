@@ -9,6 +9,7 @@ export default function CarbonAds({ code, placement }: Props) {
     if (ref.current) {
       ref.current.innerHTML = '';
       const s = document.createElement('script');
+      s.async = true;
       s.id = '_carbonads_js';
       s.src = `//cdn.carbonads.com/carbon.js?serve=${code}&placement=${placement}`;
       ref.current.appendChild(s);
