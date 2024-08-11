@@ -43,7 +43,7 @@ const config: Config = {
         },
         blog: false,
         theme: {
-          customCss: './src/scss/custom.scss',
+          customCss: ['./src/scss/custom.scss', './src/scss/carbon.scss'],
         },
         // IMPORTANT: uncomment for sdkman.github.io in production
         // googleAnalytics: {

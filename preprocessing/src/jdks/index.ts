@@ -21,6 +21,10 @@ title: JDK Distributions
 
 {/* ATTENTION! Do not edit, the file is generated automatically by the plugin */}
 
+import DocsCarbonAds from '@site/src/components/sections/DocsCarbonAds';
+
+<DocsCarbonAds />
+
 ${content}`;
 }
 
