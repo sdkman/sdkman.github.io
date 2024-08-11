@@ -16,7 +16,7 @@
     }
 
     &Text {
-      font-size: 1.25rem;
+      font-size: 1.125rem;
       font-weight: 500;
       width: 100%;
       max-width: 768px;
@@ -36,12 +36,13 @@
     margin: 1rem 0;
 
     &Title {
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: 700;
       text-transform: capitalize;
     }
 
     &Text {
+      font-weight: 500;
       text-align: center;
       color: var(--color-secondary);
 

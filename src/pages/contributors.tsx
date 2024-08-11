@@ -4,7 +4,7 @@ import { OpenCollectiveList } from '@site/src/components/sections/OpenCollective
 
 export default function ContributorsPage() {
   return (
-    <Layout>
+    <Layout title="Contributors">
       <OpenCollectiveList />
     </Layout>
   );

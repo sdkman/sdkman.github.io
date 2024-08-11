@@ -9,7 +9,7 @@ export default function OCButton() {
       href="https://opencollective.com/sdkman/contribute"
     >
       <img
-        src="/img/open-collective-button.png"
+        src="/assets/img/open-collective-button.png"
         alt="Donate"
         width={240}
         height={35}

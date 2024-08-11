@@ -1,7 +1,7 @@
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 
-import CommonHausFoundationLogo from '@site/static/img/CF_logo_horizontal_stack_reverse.svg';
+import CommonHausFoundationLogo from '@site/static/assets/img/CF_logo_horizontal_stack_reverse.svg';
 
 import styles from './styles.module.scss';
 

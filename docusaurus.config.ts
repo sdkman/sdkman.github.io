@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'SDKMAN!',
+  title: 'SDKMAN! the Software Development Kit Manager',
   tagline: '',
   favicon: 'img/favicon.ico',
 
@@ -45,6 +45,16 @@ const config: Config = {
         theme: {
           customCss: './src/scss/custom.scss',
         },
+        // IMPORTANT: uncomment for sdkman.github.io in production
+        // googleAnalytics: {
+        //   trackingID: 'UA-10247295-12',
+        //   anonymizeIP: true,
+        // },
+        // IMPORTANT: Need use Google Analytics 4 with G-* instead UA-*
+        // gtag: {
+        //   trackingID: 'G-##########',
+        //   anonymizeIP: true
+        // },
       } satisfies Preset.Options,
     ],
   ],
@@ -52,12 +62,23 @@ const config: Config = {
   plugins: ['docusaurus-plugin-sass', './src/plugins/google-fonts.ts'],
 
   themeConfig: {
+    metadata: [
+      { name: 'og:type', content: 'website' },
+      { name: 'og:site_name', content: 'SDKMAN!' },
+      {
+        name: 'og:description',
+        content:
+          'SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits on most Unix based systems.',
+      },
+      { name: 'twitter:site', content: '@sdkman_' },
+      { name: 'twitter:creator', content: '@sdkman_' },
+    ],
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'assets/img/bubble-logo-sdkman-groovy-color.png',
     navbar: {
       logo: {
         alt: 'SDKMAN!',
-        src: 'img/logo.png',
+        src: 'assets/img/logo.png',
       },
       items: [
         {
