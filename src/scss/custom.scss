@@ -53,9 +53,10 @@
 
 body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   left: -50vw;
   top: -50vw;
+  z-index: -1;
   width: 100vw;
   height: 100vw;
   background: radial-gradient(
