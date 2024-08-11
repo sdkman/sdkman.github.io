@@ -1,4 +1,4 @@
-export const vendors = [
+const vendors = [
   {
     id: 'amzn',
     vendor: 'Amazon',
@@ -201,3 +201,5 @@ export const vendors = [
       solution-oriented engineering assistance.`,
   },
 ];
+
+export default vendors;

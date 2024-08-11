@@ -1,25 +1,17 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
+import { writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 
-import { vendors } from '../data/jdks';
+import vendors from './vendors';
 
-export default function jdksPlugin() {
-  return {
-    name: 'docusaurus-jdks-plugin',
-    async loadContent() {
-      const jdkList = getJDKsMarkup(vendors);
-      const template = getMarkup(jdkList);
+export default async function generateJDKs() {
+  const jdkList = getJDKsMarkup(vendors);
+  const template = getMarkup(jdkList);
 
-      try {
-        await fs.writeFile(
-          path.resolve(__dirname, '../../docs/jdks.mdx'),
-          template,
-        );
-      } catch (err) {
-        console.error(err);
-      }
-    },
-  };
+  try {
+    await writeFile(resolve(process.cwd(), './docs/jdks.mdx'), template);
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 function getMarkup(content: string) {

@@ -19,5 +19,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Hide preprocessing out
+/preprocessing/out
+
 # Hide auto generated doc pages
 /docs/jdks.mdx
+/docs/sdks.mdx

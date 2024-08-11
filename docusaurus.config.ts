@@ -49,11 +49,7 @@ const config: Config = {
     ],
   ],
 
-  plugins: [
-    'docusaurus-plugin-sass',
-    './src/plugins/google-fonts.ts',
-    './src/plugins/jdks.ts',
-  ],
+  plugins: ['docusaurus-plugin-sass', './src/plugins/google-fonts.ts'],
 
   themeConfig: {
     // Replace with your project's social card
