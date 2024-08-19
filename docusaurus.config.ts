@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'SDKMAN! the Software Development Kit Manager',
   tagline: '',
-  favicon: 'img/favicon.ico',
+  favicon: 'assets/img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://sdkman.io',
