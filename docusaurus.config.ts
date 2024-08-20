@@ -45,11 +45,10 @@ const config: Config = {
         theme: {
           customCss: ['./src/scss/custom.scss', './src/scss/carbon.scss'],
         },
-        // IMPORTANT: uncomment for sdkman.github.io in production
-        // googleAnalytics: {
-        //   trackingID: 'UA-10247295-12',
-        //   anonymizeIP: true,
-        // },
+        googleAnalytics: {
+          trackingID: 'UA-10247295-12',
+          anonymizeIP: true,
+        },
         // IMPORTANT: Need use Google Analytics 4 with G-* instead UA-*
         // gtag: {
         //   trackingID: 'G-##########',
