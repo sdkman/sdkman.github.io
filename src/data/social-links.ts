@@ -1,7 +1,6 @@
 import {
   FaGithub,
   FaDiscord,
-  FaSlack,
   FaXTwitter,
   FaStackOverflow,
 } from 'react-icons/fa6';
@@ -16,11 +15,6 @@ const socialLinks = [
     icon: FaDiscord,
     href: 'https://discord.gg/y9mVJYVyu4',
     alt: 'Discord',
-  },
-  {
-    icon: FaSlack,
-    href: 'https://sdkman.slack.com/',
-    alt: 'Slack',
   },
   {
     icon: FaXTwitter,
