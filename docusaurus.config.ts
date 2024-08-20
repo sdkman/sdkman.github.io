@@ -36,20 +36,15 @@ const config: Config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          // editUrl:
-          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: false,
         theme: {
           customCss: ['./src/scss/custom.scss', './src/scss/carbon.scss'],
         },
-        // IMPORTANT: uncomment for sdkman.github.io in production
-        // googleAnalytics: {
-        //   trackingID: 'UA-10247295-12',
-        //   anonymizeIP: true,
-        // },
+        googleAnalytics: {
+          trackingID: 'UA-10247295-12',
+          anonymizeIP: true,
+        },
         // IMPORTANT: Need use Google Analytics 4 with G-* instead UA-*
         // gtag: {
         //   trackingID: 'G-##########',
