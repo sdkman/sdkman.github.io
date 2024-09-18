@@ -7,7 +7,10 @@ import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
 
 export default function WelcomePage() {
   return (
-    <Layout title="Home">
+    <Layout
+      title="Home"
+      description="SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits on most Unix based systems."
+    >
       <PageCarbonAds />
       <Hero />
 

@@ -13,6 +13,7 @@ export default function OCButton() {
         alt="Donate"
         width={240}
         height={35}
+        loading="lazy"
       />
     </Link>
   );
