@@ -13,7 +13,9 @@ export default function AvatarImage({ className, src, alt }: Props) {
     return <span className={clsx(styles.avatarImage, className)}>{name}</span>;
   }
 
-  return <img className={className} src={src} alt={`${alt} avatar`} />;
+  return (
+    <img className={className} src={src} alt={`${alt} avatar`} loading="lazy" />
+  );
 }
 
 function generateAvatar(value: string) {
