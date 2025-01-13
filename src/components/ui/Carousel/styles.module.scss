@@ -1,4 +1,4 @@
-@import '@site/src/scss/breakpoints';
+@use '@site/src/scss/breakpoints' as *;
 
 :root {
   --carousel-button-background-rgb: 224, 229, 237;
