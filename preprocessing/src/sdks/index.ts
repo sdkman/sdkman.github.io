@@ -68,8 +68,8 @@ function parseSDKs(sdksData: string) {
   return baseParts.map((item) => {
     const lines = item.slice(1, -1).split('\n');
     const id = lines.slice(-1)[0].split(' ').slice(-1)[0].trim();
-    const title = lines[0].split('  ')[0].trim();
-    const url = lines[0].split('  ').slice(-1)[0].trim();
+    const title = `${lines[0].split(')')[0].trim()})`;
+    const url = lines[0].split(')').slice(-1)[0].trim();
     const description = lines.slice(2, -2).join('\n').trim();
 
     return {
