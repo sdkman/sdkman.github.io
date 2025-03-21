@@ -191,7 +191,6 @@ jobs:
           consumer-token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
           candidate: java
           version: ${{ github.event.inputs.version }}
-          vendor: acme
           url: https://github.com/acme/java/releases/download/${{ github.event.inputs.version }}/java-linux-x64.tar.gz
           platform: LINUX_64
           CHECKSUM-SHA-256: "abcd1234..."
