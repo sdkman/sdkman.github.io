@@ -305,3 +305,22 @@ It also exposes some convenience goals that roll the above into single goals:
 For more details of about this plugin, as well as how to configure it, please
 refer to the [Github Page](https://github.com/sdkman/sdkman-vendor-maven-plugin)
 for the project.
+
+## Broadcast a Structured Message
+
+This will result in a structured message announcement on social media and
+SDKMAN! CLI. The result will look something like:
+`grails 3.0.0 available for download. https://git.io/release`. The url can point
+to the github release page or the version's changelog. This message will be
+announced to the broadcast channel of SDKMAN! CLI, as well as on the
+[@sdkman\_](https://x.com/sdkman_) X feed.
+
+```shell
+curl -X POST \
+-H "Consumer-Key: CONSUMER_KEY" \
+-H "Consumer-Token: CONSUMER_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
+https://vendors.sdkman.io/announce/struct
+```
