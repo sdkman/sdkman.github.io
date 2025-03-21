@@ -226,8 +226,8 @@ jobs:
       - name: Set Default on SDKMAN!
         uses: sdkman/sdkman-default-action@v1
         with:
-          consumer_key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
-          consumer_token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
+          consumer-key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
+          consumer-token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
           candidate: myCandidateName
           version: ${{ github.event.inputs.version }}
 ```
