@@ -194,11 +194,8 @@ jobs:
           vendor: acme
           url: https://github.com/acme/java/releases/download/${{ github.event.inputs.version }}/java-linux-x64.tar.gz
           platform: LINUX_64
-          checksums: |
-            {
-              "SHA-256": "abcd1234...",
-              "SHA-512": "efgh5678..."
-            }
+          CHECKSUM-SHA-256: "abcd1234..."
+          CHECKSUM-SHA-512: "efgh5678..."
 ```
 
 ### SDKMAN! Default Action
