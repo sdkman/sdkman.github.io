@@ -1,4 +1,5 @@
 import React from 'react';
+import CodeBlock from '@theme/CodeBlock';
 import styles from './styles.module.scss';
 
 export default function Hero() {
@@ -36,9 +37,11 @@ export default function Hero() {
 
           <p className={styles.sectionBottomText}>
             Go on then, paste and run the following in a terminal:
-            <br />
-            <code>curl -s "https://get.sdkman.io" | bash</code>
           </p>
+
+          <CodeBlock language="shell">
+            curl -s "https://get.sdkman.io" | bash
+          </CodeBlock>
         </div>
       </div>
     </section>
