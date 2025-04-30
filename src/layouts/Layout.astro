@@ -1,5 +1,6 @@
 ---
 import Footer from '@/components/Footer.astro';
+import GoogleAnalytics from '@/components/GoogleAnalytics.astro';
 import Navbar from '@/components/Navbar.astro';
 import '@/styles/global.css';
 import '@fontsource-variable/inter';
@@ -61,6 +62,8 @@ const { title, description = siteDescription } = Astro.props;
       <Footer />
     </div>
   </body>
+
+  <GoogleAnalytics id="UA-10247295-12" />
 </html>
 
 <script is:inline>
