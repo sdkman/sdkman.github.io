@@ -9,9 +9,12 @@ interface Props {
   description?: string;
 }
 
-const { title, description } = Astro.props;
-
 const siteName = 'SDKMAN! the Software Development Kit Manager';
+const siteDescription =
+  'SDKMAN! is a tool for managing parallel versions of multiple Software Development Kits on most Unix based systems.';
+const ogImageUrl = '/img/bubble-logo-sdkman-groovy-color.png';
+
+const { title, description = siteDescription } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,6 +26,23 @@ const siteName = 'SDKMAN! the Software Development Kit Manager';
     <meta name="generator" content={Astro.generator} />
     <title>{title} | {siteName}</title>
     <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | ${siteName}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://blackportal.ai/" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SDKMAN!" />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <!-- Twitter Open Graph -->
+    <meta property="twitter:title" content={`${title} | ${siteName}`} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:site" content="@sdkman_" />
+    <meta property="twitter:creator" content="@sdkman_" />
+    <meta property="twitter:image" content={ogImageUrl} />
   </head>
 
   <body>
