@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.2.5",
+    "@astrojs/sitemap": "^3.3.1",
     "@fontsource-variable/inter": "^5.2.5",
     "@iconify-json/lucide": "^1.2.39",
     "@iconify-json/simple-icons": "^1.2.33",
