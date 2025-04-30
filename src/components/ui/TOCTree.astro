@@ -1,0 +1,42 @@
+---
+export interface TOCItem {
+  text: string;
+  slug: string;
+  items: TOCItem[];
+}
+
+interface Props {
+  items: TOCItem[];
+  level?: number;
+  activeItem?: string;
+}
+
+const { items, level = 1, activeItem } = Astro.props;
+---
+
+<ul class={level > 1 ? 'pl-4' : ''}>
+  {
+    items.map((item) => (
+      <li class="mt-0 pt-2">
+        <a
+          href={`#${item.slug}`}
+          class:list={[
+            'hover:text-foreground inline-block no-underline transition-colors',
+            item.slug === activeItem
+              ? 'text-foreground font-medium'
+              : 'text-muted-foreground',
+          ]}
+        >
+          {item.text}
+        </a>
+        {item.items?.length ? (
+          <Astro.self
+            items={item.items}
+            level={level + 1}
+            activeItem={activeItem}
+          />
+        ) : null}
+      </li>
+    ))
+  }
+</ul>

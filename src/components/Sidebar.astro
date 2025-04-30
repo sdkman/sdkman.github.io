@@ -1,0 +1,29 @@
+---
+import Button from '@/components/ui/Button.astro';
+import type { MenuItem } from '@/types/menu';
+
+interface Props {
+  menuItems: MenuItem[];
+}
+
+const { menuItems } = Astro.props;
+---
+
+<nav>
+  <ul class="flex flex-col gap-1">
+    {
+      menuItems.map((menuItem) => (
+        <li class="">
+          <Button
+            class="w-full justify-start"
+            href={menuItem.href}
+            variant="ghost"
+            size="sm"
+          >
+            {menuItem.text}
+          </Button>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

@@ -1,0 +1,42 @@
+---
+import Sidebar from '@/components/Sidebar.astro';
+import Container from '@/components/ui/Container.astro';
+import TOC from '@/components/ui/TOC.astro';
+import sidebarMenu from '@/data/sidebar-menu';
+import Layout from '@/layouts/Layout.astro';
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  headings?: MarkdownHeading[];
+}
+
+const { title, description, headings } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Container
+    class="grid grid-cols-1 gap-12 pt-10 pb-20 lg:grid-cols-[250px_1fr] xl:grid-cols-[250px_1fr_200px]"
+  >
+    <div class="hidden lg:block">
+      <div class="sticky top-24 h-[calc(100vh-8rem)]">
+        <Sidebar menuItems={sidebarMenu} />
+      </div>
+    </div>
+
+    <main class="content">
+      <slot />
+    </main>
+
+    {
+      headings && (
+        <div class="hidden text-sm xl:block">
+          <div class="sticky top-24 h-[calc(100vh-8rem)]">
+            <TOC headings={headings} />
+          </div>
+        </div>
+      )
+    }
+  </Container>
+</Layout>

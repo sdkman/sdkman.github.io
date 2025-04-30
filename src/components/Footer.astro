@@ -1,0 +1,48 @@
+---
+import Container from '@/components/ui/Container.astro';
+import Link from '@/components/ui/Link.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<footer class="py-10">
+  <Container
+    class="flex flex-col items-center justify-center text-center text-sm font-semibold"
+  >
+    <Link
+      class="mb-6"
+      href="https://www.commonhaus.org/"
+      aria-label="CommonHaus Foundation"
+    >
+      <Icon name="CF_logo_horizontal_stack_reverse" width={150} height={32} />
+    </Link>
+
+    <div>
+      &copy; 2012 - {new Date().getFullYear()} SDKMAN! is Open Source Software licensed
+      under
+      <Link href="http://www.apache.org/licenses/LICENSE-2.0.html">
+        Apache 2
+      </Link>
+    </div>
+
+    <div>
+      Logos and Design by
+      <Link href="https://github.com/dmesu">Daida Medina</Link> and
+      <Link href="https://github.com/SvMak">Sviatoslav Makhynko</Link>
+    </div>
+
+    <Link class="mt-4 flex items-center" href="http://status.sdkman.io">
+      <span>Status</span>
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 15 15"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="#3BCF6E"
+          d="M9.875 7.5C9.875 8.81168 8.81168 9.875 7.5 9.875C6.18832 9.875 5.125 8.81168 5.125 7.5C5.125 6.18832 6.18832 5.125 7.5 5.125C8.81168 5.125 9.875 6.18832 9.875 7.5Z"
+        ></path>
+      </svg>
+    </Link>
+  </Container>
+</footer>

@@ -1,0 +1,28 @@
+---
+import Link from '@/components/ui/Link.astro';
+import type { BreadcrumbsItem } from '@/types/breadcrumbs';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  breadcrumbs: BreadcrumbsItem[];
+}
+
+const { breadcrumbs } = Astro.props;
+---
+
+<ol class="flex items-center text-sm font-semibold mb-6 text-muted-foreground flex-wrap break-words">
+  <li class="flex items-center">
+    <Link class="hover:text-foreground transition-colors" href="/"><Icon class="h-4 w-4" name="lucide:home" /></Link>
+    <Icon class="mx-1" name="lucide:chevron-right" />
+  </li>
+  {
+    breadcrumbs.map((breadcrumb) => (
+      <li class="flex items-center">
+        {breadcrumb.href ? (
+          <Link class="hover:text-foreground transition-colors" href={breadcrumb.href}>{breadcrumb.text}</Link>
+          <Icon class="mx-1" name="lucide:chevron-right" />
+        ) : <span class="text-foreground">{breadcrumb.text}</span>}
+      </li>
+    ))
+  }
+</ol>

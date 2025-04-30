@@ -1,0 +1,38 @@
+---
+import logo from '@/assets/logo.png';
+import MobileNavbar from '@/components/MobileNavbar.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
+import ThemeSwitcher from '@/components/ThemeSwitcher.astro';
+import Container from '@/components/ui/Container.astro';
+import mainMenu from '@/data/main-menu';
+import { Image } from 'astro:assets';
+---
+
+<header class="bg-background/10 sticky top-0 z-10 shadow backdrop-blur-sm">
+  <Container class="flex h-16 items-center justify-between">
+    <nav class="flex items-center gap-12">
+      <div class="flex items-center gap-3">
+        <MobileNavbar />
+
+        <a href="/">
+          <Image src={logo} width={44} height={32} alt="SDKMAN!" />
+        </a>
+      </div>
+
+      <ul class="hidden items-center gap-6 text-sm font-semibold lg:flex">
+        {
+          mainMenu.map((menuItem) => (
+            <li>
+              <a href={menuItem.href}>{menuItem.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-12">
+      <SocialLinks class="hidden lg:flex" />
+      <ThemeSwitcher />
+    </div>
+  </Container>
+</header>

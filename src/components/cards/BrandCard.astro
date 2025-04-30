@@ -1,0 +1,24 @@
+---
+import type { BrandItem } from '@/types/brand';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  item: BrandItem;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="card flex flex-col items-center">
+  <img class="mb-8 h-24 w-auto" src={item.src} alt={item.alt} />
+
+  <div class="flex items-center justify-center gap-6">
+    {
+      item.links.map((link) => (
+        <Button variant="ghost" size="sm" href={link.href}>
+          {link.text}
+        </Button>
+      ))
+    }
+  </div>
+</div>

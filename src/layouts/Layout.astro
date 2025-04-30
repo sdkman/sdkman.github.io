@@ -1,0 +1,53 @@
+---
+import Footer from '@/components/Footer.astro';
+import Navbar from '@/components/Navbar.astro';
+import '@/styles/global.css';
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+const siteName = 'SDKMAN! the Software Development Kit Manager';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | {siteName}</title>
+    <meta name="description" content={description} />
+  </head>
+
+  <body>
+    <div
+      class="bg-background text-foreground flex h-full min-h-screen flex-col"
+    >
+      <Navbar />
+
+      <div class="grow">
+        <slot />
+      </div>
+
+      <Footer />
+    </div>
+  </body>
+</html>
+
+<script is:inline>
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>

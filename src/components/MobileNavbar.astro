@@ -1,0 +1,52 @@
+---
+import SocialLinks from '@/components/SocialLinks.astro';
+import Button from '@/components/ui/Button.astro';
+import mobileMenu from '@/data/mobile-menu';
+import { Icon } from 'astro-icon/components';
+---
+
+<Button id="mobile-nav-btn" class="lg:hidden" variant="ghost" size="icon">
+  <Icon class="size-6" name="lucide:menu" />
+</Button>
+
+<div
+  id="mobile-nav"
+  class="fade-in data-[state=show]:animate-in data-[state=hide]:animate-out fade-out absolute inset-0 hidden h-screen w-full duration-300"
+  data-state="hide"
+>
+  <div
+    class="bg-background text-foreground relative flex h-full w-full flex-col items-center p-8"
+  >
+    <nav class="grow">
+      <ul class="flex flex-col items-center gap-6 font-semibold">
+        {
+          mobileMenu.map((menuItem) => (
+            <li>
+              <a href={menuItem.href}>{menuItem.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <SocialLinks />
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById('mobile-nav-btn');
+  const nav = document.getElementById('mobile-nav');
+
+  function toggleNav() {
+    if (nav?.getAttribute('data-state') === 'hide') {
+      nav?.classList.remove('hidden');
+      nav?.setAttribute('data-state', 'show');
+    } else {
+      nav?.setAttribute('data-state', 'hide');
+      setTimeout(() => nav?.classList.add('hidden'), 300);
+    }
+  }
+
+  btn?.addEventListener('click', toggleNav);
+  nav?.addEventListener('click', toggleNav);
+</script>

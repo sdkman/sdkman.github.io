@@ -1,0 +1,9 @@
+---
+import openCollectiveButton from '@/assets/open-collective-button.png';
+import Link from '@/components/ui/Link.astro';
+import { Image } from 'astro:assets';
+---
+
+<Link class="h-9 w-auto" href="https://opencollective.com/sdkman/contribute">
+  <Image src={openCollectiveButton} alt="Donate" width={240} height={36} />
+</Link>

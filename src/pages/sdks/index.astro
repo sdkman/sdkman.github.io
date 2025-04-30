@@ -1,0 +1,26 @@
+---
+import PageHeader from '@/components/PageHeader.astro';
+import SDKCard from '@/components/cards/SDKCard.astro';
+import Container from '@/components/ui/Container.astro';
+import Layout from '@/layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const allSDKs = await getCollection('sdks');
+const breadcrumbs = [{ text: 'SDKs' }];
+---
+
+<Layout title="SDK Installation Candidates">
+  <PageHeader title="SDK Installation Candidates" breadcrumbs={breadcrumbs} />
+
+  <Container class="pb-20">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      {
+        allSDKs.map((SDK) => (
+          <a href={`/sdks/${SDK.data.id}`}>
+            <SDKCard item={SDK} />
+          </a>
+        ))
+      }
+    </div>
+  </Container>
+</Layout>

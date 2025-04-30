@@ -1,0 +1,60 @@
+---
+import type { MarkdownHeading } from 'astro';
+import type { TOCItem } from './TOCTree.astro';
+import TOCTree from './TOCTree.astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+function prepareTOCItems(headings: MarkdownHeading[]) {
+  const filteredHeadings = headings.filter((item) =>
+    [2, 3].includes(item.depth),
+  );
+
+  const pointList = filteredHeadings.reduce<number[]>((acc, val, idx) => {
+    if (val.depth === 2) {
+      acc.push(idx);
+    }
+
+    return acc;
+  }, []);
+
+  let currentIdx = 0;
+
+  const tocItems = filteredHeadings.reduce<TOCItem[]>((acc, val, idx) => {
+    if (pointList.includes(idx)) {
+      acc.push({
+        text: val.text,
+        slug: val.slug,
+        items: [],
+      });
+
+      currentIdx = idx;
+    } else {
+      if (!!acc[currentIdx] && !!acc[currentIdx].items) {
+        acc[currentIdx].items.push({
+          text: val.text,
+          slug: val.slug,
+          items: [],
+        });
+      }
+    }
+
+    return acc;
+  }, []);
+
+  const ids = filteredHeadings.map((item) => item.slug);
+
+  return { tocItems, ids };
+}
+
+const { tocItems, ids } = prepareTOCItems(headings);
+---
+
+<div class="space-y-2">
+  <p class="font-medium">On This Page</p>
+  <TOCTree items={tocItems} />
+</div>

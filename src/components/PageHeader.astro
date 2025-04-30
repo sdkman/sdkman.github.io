@@ -1,0 +1,21 @@
+---
+import Breadcrumbs from '@/components/ui/Breadcrumbs.astro';
+import Container from '@/components/ui/Container.astro';
+import type { BreadcrumbsItem } from '@/types/breadcrumbs';
+
+interface Props {
+  title: string;
+  breadcrumbs: BreadcrumbsItem[];
+  isDoc?: boolean;
+}
+
+const { title, breadcrumbs, isDoc = false } = Astro.props;
+---
+
+<header class:list={[!isDoc && 'pt-10 pb-10']}>
+  <Container class:list={[!!isDoc && 'px-0!']}>
+    <Breadcrumbs breadcrumbs={breadcrumbs} />
+
+    <h1 class="text-3xl font-bold">{title}</h1>
+  </Container>
+</header>

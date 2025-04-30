@@ -1,0 +1,23 @@
+---
+import AvatarImage from '@/components/ui/AvatarImage.astro';
+import Link from '@/components/ui/Link.astro';
+import type { OpenCollectiveSponsor } from '@/types/open-collective';
+
+interface Props {
+  individual: OpenCollectiveSponsor;
+}
+
+const { individual } = Astro.props;
+---
+
+<Link class="card flex h-full flex-col items-center" href={individual.profile}>
+  <AvatarImage
+    class="mb-3 block h-16 w-16 rounded-full object-cover"
+    src={individual.image}
+    alt={individual.name}
+  />
+
+  <div class="text-center font-bold">
+    {individual.name}
+  </div>
+</Link>

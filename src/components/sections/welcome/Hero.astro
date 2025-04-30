@@ -1,0 +1,41 @@
+---
+import bgEllipse from '@/assets/sdkman-bg-ellipse.svg';
+import Container from '@/components/ui/Container.astro';
+import { Code } from 'astro-expressive-code/components';
+import { Image } from 'astro:assets';
+---
+
+<section class="relative py-20">
+  <Image
+    class="absolute top-1/2 left-1/2 w-[90%] -translate-x-1/2 -translate-y-1/2 opacity-50 dark:opacity-80"
+    src={bgEllipse}
+    alt="Hero background"
+  />
+
+  <Container class="relative">
+    <div class="mx-auto mb-12 max-w-2xl text-center">
+      <h1 class="mb-6 text-4xl font-black text-shadow-sm">
+        The Software Development Kit Manager
+      </h1>
+
+      <p class="text-lg">
+        <span class="font-bold">SDKMAN!</span> – your reliable companion for effortlessly
+        managing multiple Software Development Kits on Unix systems.
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center">
+      <h2 class="mb-6 text-2xl font-bold">Get started now!</h2>
+
+      <p class="mb-6 text-lg">
+        Go on then, paste and run the following in a terminal:
+      </p>
+
+      <Code
+        code='curl -s "https://get.sdkman.io" | bash'
+        lang="shell"
+        frame="none"
+      />
+    </div>
+  </Container>
+</section>

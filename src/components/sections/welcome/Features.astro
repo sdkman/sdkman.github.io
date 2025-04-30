@@ -1,0 +1,11 @@
+---
+import FeatureCard from '@/components/cards/FeatureCard.astro';
+import Container from '@/components/ui/Container.astro';
+import features from '@/data/features';
+---
+
+<section class="py-20">
+  <Container class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    {features.map((feature) => <FeatureCard item={feature} />)}
+  </Container>
+</section>

@@ -1,0 +1,13 @@
+---
+import PageHeader from '@/components/PageHeader.astro';
+import OpenCollectiveList from '@/components/sections/contributors/OpenCollectiveList.astro';
+import Layout from '@/layouts/Layout.astro';
+
+const breadcrumbs = [{ text: 'Contributors' }];
+---
+
+<Layout title="Contributors">
+  <PageHeader title="Contributors" breadcrumbs={breadcrumbs} />
+
+  <OpenCollectiveList />
+</Layout>

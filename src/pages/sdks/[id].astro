@@ -1,0 +1,49 @@
+---
+import PageHeader from '@/components/PageHeader.astro';
+import Container from '@/components/ui/Container.astro';
+import Link from '@/components/ui/Link.astro';
+import Layout from '@/layouts/Layout.astro';
+import { Code } from 'astro-expressive-code/components';
+import { Icon } from 'astro-icon/components';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allSDKs = await getCollection('sdks');
+
+  return allSDKs.map((SDK) => ({ params: { id: SDK.data.id } }));
+}
+
+const { id } = Astro.params;
+
+const SDK = await getEntry('sdks', id);
+
+if (!SDK) {
+  throw Error('Not Found');
+}
+
+const breadcrumbs = [{ text: 'SDKs', href: '/sdks' }, { text: SDK.data.title }];
+---
+
+<Layout title={SDK.data.title}>
+  <PageHeader title={SDK.data.title} breadcrumbs={breadcrumbs} />
+
+  <Container class="grid grid-cols-1 gap-12 pb-20 lg:grid-cols-[1fr_250px]">
+    <div class="flex flex-col gap-8">
+      <p>{SDK.data.description}</p>
+
+      <div>
+        <h2 class="mb-4 text-2xl font-bold">Installation</h2>
+
+        <Code code={`sdk install ${SDK.data.id}`} lang="shell" frame="code" />
+      </div>
+    </div>
+
+    <div class="card flex h-fit flex-col gap-3">
+      <div class="text-lg font-bold">Details</div>
+
+      <Link class="flex items-center gap-1" href={SDK.data.url}
+        >Website <Icon name="lucide:external-link" /></Link
+      >
+    </div>
+  </Container>
+</Layout>

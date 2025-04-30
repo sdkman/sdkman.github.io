@@ -1,0 +1,48 @@
+---
+import AvatarImage from '@/components/ui/AvatarImage.astro';
+import Badge from '@/components/ui/Badge.astro';
+import Link from '@/components/ui/Link.astro';
+import type { OpenCollectiveSponsor } from '@/types/open-collective';
+
+interface Props {
+  organization: OpenCollectiveSponsor;
+}
+
+const { organization } = Astro.props;
+---
+
+<Link class="card relative flex h-full flex-col" href={organization.profile}>
+  <div class="grow">
+    <AvatarImage
+      class="mb-3 block h-16 w-16 rounded-full object-cover"
+      src={organization.image}
+      alt={organization.name}
+    />
+
+    {
+      organization.tier && (
+        <Badge class="absolute top-4 right-4" variant="success">
+          {organization.tier}
+        </Badge>
+      )
+    }
+
+    <div class="font-bold">
+      {organization.name}
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <span class="text-success text-xl font-bold"
+      >$ {organization.totalAmountDonated.toFixed(0)}</span
+    >
+    <span class="text-muted-foreground text-sm"
+      >since {
+        new Intl.DateTimeFormat('en-GB', {
+          month: 'short',
+          year: 'numeric',
+        }).format(Date.parse(organization.createdAt))
+      }</span
+    >
+  </div>
+</Link>

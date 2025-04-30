@@ -1,0 +1,23 @@
+---
+import BrandCard from '@/components/cards/BrandCard.astro';
+import PageHeader from '@/components/PageHeader.astro';
+import Container from '@/components/ui/Container.astro';
+import logos from '@/data/logos';
+import Layout from '@/layouts/Layout.astro';
+
+const breadcrumbs = [{ text: 'Brand' }];
+---
+
+<Layout title="Brand">
+  <PageHeader title="Brand" breadcrumbs={breadcrumbs} />
+
+  <Container class="pb-20">
+    <div class="mb-12">
+      <h2 class="text-2xl font-bold">Logos</h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      {logos.map((logo) => <BrandCard item={logo} />)}
+    </div>
+  </Container>
+</Layout>

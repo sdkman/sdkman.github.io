@@ -1,12 +1,11 @@
 import type {
   OpenCollectiveKeys,
   OpenCollectiveSponsor,
-} from '@site/src/types/open-collective';
-import fetchJsonp from 'fetch-jsonp';
+} from '@/types/open-collective';
 
 function prepareSponsors(sponsors: OpenCollectiveSponsor[]) {
   const sponsorsData = sponsors
-    .reduce((acc, val) => {
+    .reduce<OpenCollectiveSponsor[]>((acc, val) => {
       const existVal = acc.find((item) => item.profile === val.profile);
 
       if (val.totalAmountDonated > 0 && !existVal) {
@@ -24,21 +23,17 @@ async function getOpenCollective(key: OpenCollectiveKeys) {
   const params = {
     organizations: {
       uri: '/sdkman/members/organizations.json',
-      jsonpCallbackFunction: 'ocOrganizationsJsonpCallback',
     },
     users: {
       uri: '/sdkman/members/users.json',
-      jsonpCallbackFunction: 'ocUsersJsonpCallback',
     },
   };
 
   try {
-    const { uri, jsonpCallbackFunction } = params[key];
+    const { uri } = params[key];
 
-    const res = await fetchJsonp(
-      `https://json2jsonp.com/?url=https://opencollective.com/${uri}`,
-      { jsonpCallbackFunction },
-    );
+    const res = await fetch(`https://opencollective.com/${uri}`);
+
     const sponsors: OpenCollectiveSponsor[] = await res.json();
 
     return prepareSponsors(sponsors);
@@ -47,6 +42,4 @@ async function getOpenCollective(key: OpenCollectiveKeys) {
   }
 }
 
-export const openCollectiveService = {
-  getOpenCollective,
-};
+export { getOpenCollective };

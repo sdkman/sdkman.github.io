@@ -1,0 +1,47 @@
+---
+import Badge from '@/components/ui/Badge.astro';
+import { Icon } from 'astro-icon/components';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'jdks'>;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="card relative h-full">
+  <h2 class="mb-3 text-lg font-bold">
+    {item.data.distribution} ({item.data.vendor})
+  </h2>
+
+  <div class="flex items-center justify-between text-sm">
+    {
+      item.data.os?.icons && (
+        <div class="flex items-center gap-3">
+          {item.data.os.icons.map((os) => (
+            <Icon class="h-5 w-5" name={`simple-icons:${os}`} />
+          ))}
+        </div>
+      )
+    }
+
+    {
+      item.data.architecture?.icons && (
+        <div class="flex items-center gap-3">
+          {item.data.architecture.icons.map((arch) => (
+            <Icon class="h-8 w-8" name={`simple-icons:${arch}`} />
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  {
+    item.data.isDefault && (
+      <Badge class="absolute top-3 right-3" variant="success">
+        Default
+      </Badge>
+    )
+  }
+</div>

@@ -1,0 +1,24 @@
+---
+import type { Feature } from '@/types/feature';
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  item: Feature;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="card">
+  <div
+    class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-gray-200 dark:bg-gray-800"
+  >
+    <Icon class="h-6 w-6" name={item.icon} />
+  </div>
+
+  <h2 class="mb-3 text-lg font-bold">{item.title}</h2>
+
+  <p class="text-muted-foreground text-sm">
+    <Fragment set:html={item.description} />
+  </p>
+</div>

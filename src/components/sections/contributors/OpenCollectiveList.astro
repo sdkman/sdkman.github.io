@@ -1,0 +1,77 @@
+---
+import IndividualCard from '@/components/cards/IndividualCard.astro';
+import OrganizationCard from '@/components/cards/OrganizationCard.astro';
+import OpenCollectiveLink from '@/components/OpenCollectiveLink.astro';
+import Container from '@/components/ui/Container.astro';
+import Link from '@/components/ui/Link.astro';
+import { getOpenCollective } from '@/lib/services/open-collective';
+import { Icon } from 'astro-icon/components';
+
+const [organizationsSponsors, individualSponsors] = await Promise.all([
+  getOpenCollective('organizations'),
+  getOpenCollective('users'),
+]);
+---
+
+<section class="pb-20">
+  <Container>
+    <div class="flex items-center gap-2">
+      <Icon class="h-8 w-8" name="simple-icons:opencollective" />
+      <h2 class="text-2xl font-bold">Open Collective</h2>
+    </div>
+
+    <!-- Organizations -->
+    <div>
+      <div class="mt-12 mb-8">
+        <h3 class="mb-2 text-xl font-bold">
+          {organizationsSponsors?.length} Organizations
+        </h3>
+
+        <p>
+          <Link href="https://opencollective.com/sdkman/contribute"
+            >Contribute to our collective</Link
+          >
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+        {
+          organizationsSponsors?.map((organization) => (
+            <OrganizationCard organization={organization} />
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Individual -->
+    <div>
+      <div class="mt-12 mb-8">
+        <h3 class="mb-2 text-xl font-bold">
+          {individualSponsors?.length} People
+        </h3>
+
+        <p>
+          <Link href="https://opencollective.com/sdkman/contribute"
+            >Contribute to our collective</Link
+          >
+        </p>
+      </div>
+
+      <div
+        class="grid grid-cols-1 gap-4 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6"
+      >
+        {
+          individualSponsors?.map((individual) => (
+            <IndividualCard individual={individual} />
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="mt-10 flex items-center justify-center">
+      <OpenCollectiveLink />
+    </div>
+  </Container>
+</section>

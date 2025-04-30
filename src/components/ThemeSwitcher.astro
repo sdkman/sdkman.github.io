@@ -1,0 +1,30 @@
+---
+import Button from '@/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<Button id="theme-selector" variant="ghost" size="icon">
+  <span class="sr-only"
+    >Enable <span class="dark:hidden">light</span><span
+      class="hidden dark:inline">dark</span
+    > mode</span
+  >
+  <Icon class="hidden size-6 md:size-5 dark:block" name="lucide:sun" />
+  <Icon class="block size-6 md:size-5 dark:hidden" name="lucide:moon" />
+</Button>
+
+<script>
+  const btn = document.getElementById('theme-selector');
+
+  function handleTheme() {
+    if (localStorage.theme === 'dark') {
+      localStorage.theme = 'light';
+      document.documentElement.classList.remove('dark');
+    } else {
+      localStorage.theme = 'dark';
+      document.documentElement.classList.add('dark');
+    }
+  }
+
+  btn?.addEventListener('click', handleTheme);
+</script>

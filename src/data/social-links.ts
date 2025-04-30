@@ -1,28 +1,23 @@
-import {
-  FaGithub,
-  FaDiscord,
-  FaXTwitter,
-  FaStackOverflow,
-} from 'react-icons/fa6';
+import type { MenuIconItem } from '@/types/menu';
 
-const socialLinks = [
+const socialLinks: MenuIconItem[] = [
   {
-    icon: FaGithub,
+    icon: 'simple-icons:github',
     href: 'https://github.com/sdkman',
     alt: 'GitHub',
   },
   {
-    icon: FaDiscord,
+    icon: 'simple-icons:discord',
     href: 'https://discord.gg/y9mVJYVyu4',
     alt: 'Discord',
   },
   {
-    icon: FaXTwitter,
+    icon: 'simple-icons:x',
     href: 'https://x.com/sdkman_',
     alt: 'X',
   },
   {
-    icon: FaStackOverflow,
+    icon: 'simple-icons:stackoverflow',
     href: 'http://stackoverflow.com/questions/tagged/sdkman',
     alt: 'Stack Overflow',
   },

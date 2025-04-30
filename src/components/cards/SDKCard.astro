@@ -1,0 +1,13 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'sdks'>;
+}
+
+const { item } = Astro.props;
+---
+
+<div class="card h-full">
+  <h2 class="mb-3 text-lg font-bold">{item.data.title}</h2>
+</div>
