@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "embla-carousel": "^8.6.0",
     "embla-carousel-auto-scroll": "^8.6.0",
+    "sharp": "^0.34.1",
     "tailwindcss": "^4.1.4"
   },
   "packageManager": "pnpm@10.10.0",
