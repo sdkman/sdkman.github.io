@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import OpenCollectiveList from '@/components/sections/contributors/OpenCollectiveList.astro';
 import Layout from '@/layouts/Layout.astro';
@@ -7,6 +8,7 @@ const breadcrumbs = [{ text: 'Contributors' }];
 ---
 
 <Layout title="Contributors">
+  <CarbonAds />
   <PageHeader title="Contributors" breadcrumbs={breadcrumbs} />
 
   <OpenCollectiveList />

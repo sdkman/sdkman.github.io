@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Link from '@/components/ui/Link.astro';
 import Note from '@/components/ui/Note.astro';
@@ -23,5 +24,5 @@ const { Content, headings } = await render(doc);
 ---
 
 <DocsLayout title={doc.data.title} headings={headings}>
-  <Content components={{ a: Link, Note, PageHeader }} />
+  <Content components={{ a: Link, Note, PageHeader, CarbonAds }} />
 </DocsLayout>

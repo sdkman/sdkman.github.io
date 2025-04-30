@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Container from '@/components/ui/Container.astro';
 import Link from '@/components/ui/Link.astro';
@@ -28,6 +29,7 @@ const breadcrumbs = [
 ---
 
 <Layout title={`${JDK.data.distribution} (${JDK.data.vendor})`}>
+  <CarbonAds />
   <PageHeader
     title={`${JDK.data.distribution} (${JDK.data.vendor})`}
     breadcrumbs={breadcrumbs}

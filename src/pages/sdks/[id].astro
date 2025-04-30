@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Container from '@/components/ui/Container.astro';
 import Link from '@/components/ui/Link.astro';
@@ -25,6 +26,7 @@ const breadcrumbs = [{ text: 'SDKs', href: '/sdks' }, { text: SDK.data.title }];
 ---
 
 <Layout title={SDK.data.title}>
+  <CarbonAds />
   <PageHeader title={SDK.data.title} breadcrumbs={breadcrumbs} />
 
   <Container class="grid grid-cols-1 gap-12 pb-20 lg:grid-cols-[1fr_250px]">

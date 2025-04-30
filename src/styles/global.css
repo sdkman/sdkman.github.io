@@ -90,3 +90,54 @@
 .card {
   @apply bg-card rounded-lg p-4;
 }
+
+#carbonads {
+  display: block;
+  overflow: hidden;
+  padding: 1em;
+  max-width: 400px;
+
+  a {
+    text-decoration: none;
+  }
+
+  span {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+}
+
+.carbon-img {
+  float: right;
+  margin-left: 1em;
+
+  img {
+    display: block;
+  }
+}
+
+.carbon-text {
+  display: block;
+  line-height: 1.4;
+  max-width: calc(100% - 130px - 1em);
+  text-align: right;
+  font-size: 14px;
+}
+
+.carbon-poweredby {
+  position: absolute;
+  right: calc(130px + 1rem);
+  bottom: 0;
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.carbon-band {
+  display: flex;
+  justify-content: flex-end;
+  height: 132px;
+}

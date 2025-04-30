@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import JDKCard from '@/components/cards/JDKCard.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Container from '@/components/ui/Container.astro';
@@ -10,6 +11,7 @@ const breadcrumbs = [{ text: 'JDKs' }];
 ---
 
 <Layout title="JDK Distributions">
+  <CarbonAds />
   <PageHeader title="JDK Distributions" breadcrumbs={breadcrumbs} />
 
   <Container class="pb-20">

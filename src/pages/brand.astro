@@ -1,4 +1,5 @@
 ---
+import CarbonAds from '@/components/CarbonAds.astro';
 import BrandCard from '@/components/cards/BrandCard.astro';
 import PageHeader from '@/components/PageHeader.astro';
 import Container from '@/components/ui/Container.astro';
@@ -9,6 +10,7 @@ const breadcrumbs = [{ text: 'Brand' }];
 ---
 
 <Layout title="Brand">
+  <CarbonAds />
   <PageHeader title="Brand" breadcrumbs={breadcrumbs} />
 
   <Container class="pb-20">

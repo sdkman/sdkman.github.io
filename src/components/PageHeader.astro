@@ -12,7 +12,7 @@ interface Props {
 const { title, breadcrumbs, isDoc = false } = Astro.props;
 ---
 
-<header class:list={[!isDoc && 'pt-10 pb-10']}>
+<header class:list={[!isDoc && 'mt-28 pt-10 pb-10 lg:mt-0']}>
   <Container class:list={[!!isDoc && 'px-0!']}>
     <Breadcrumbs breadcrumbs={breadcrumbs} />
 

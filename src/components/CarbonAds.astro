@@ -1,0 +1,18 @@
+---
+interface Props {
+  isDoc?: boolean;
+}
+
+const { isDoc = false } = Astro.props;
+---
+
+<section class:list={[!isDoc && 'absolute top-16 right-0 z-10']}>
+  <div class="carbon-band">
+    <script
+      is:inline
+      async
+      type="text/javascript"
+      src="//cdn.carbonads.com/carbon.js?serve=CK7I6KJE&placement=sdkmanio"
+      id="_carbonads_js"></script>
+  </div>
+</section>
