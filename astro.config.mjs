@@ -20,9 +20,6 @@ export default defineConfig({
   integrations: [
     expressiveCode({
       defaultProps: { wrap: true },
-      shiki: {
-        bundledLangs: ['shell', 'json'],
-      },
     }),
     mdx(),
     icon(),
