@@ -1,0 +1,58 @@
+---
+import Container from '@/components/ui/Container.astro';
+import { Icon } from 'astro-icon/components';
+
+const technologies = [
+  'simple-icons:apacheant',
+  'simple-icons:asciidoctor',
+  'simple-icons:apacheflink',
+  'simple-icons:gradle',
+  'simple-icons:apachegroovy',
+  'simple-icons:apachehadoop',
+  'simple-icons:eclipsejetty',
+  'simple-icons:apachejmeter',
+  'simple-icons:kotlin',
+  'simple-icons:liquibase',
+  'simple-icons:apachemaven',
+  'simple-icons:quarkus',
+  'simple-icons:scala',
+  'simple-icons:apachespark',
+  'simple-icons:springboot',
+  'simple-icons:apachetomcat',
+  'simple-icons:eclipsevertdotx',
+];
+---
+
+<section class="py-20">
+  <Container>
+    <div id="technologies" class="overflow-hidden">
+      <div class="-ml-4 flex">
+        {
+          technologies.map((technology) => (
+            <div class="min-w-0 shrink-0 grow-0 basis-1/3 pl-4 md:basis-1/5 lg:basis-1/6 xl:basis-1/8">
+              <Icon class="h-14 w-14" name={technology} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </Container>
+</section>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import AutoScroll from 'embla-carousel-auto-scroll';
+
+  const technologiesNode = document.getElementById('technologies');
+
+  const technologiesOptions = { loop: true };
+  const technologiesPlugins = [AutoScroll({ speed: 0.8 })];
+
+  if (!!technologiesNode) {
+    EmblaCarousel(
+      technologiesNode as HTMLElement,
+      technologiesOptions,
+      technologiesPlugins
+    );
+  }
+</script>
