@@ -11,7 +11,11 @@ interface Props {
 const { organization } = Astro.props;
 ---
 
-<Link class="card relative flex h-full flex-col" href={organization.profile}>
+<Link
+  class="card relative flex h-full flex-col"
+  href={organization.profile}
+  withoutStyle
+>
   <div class="grow">
     <AvatarImage
       class="mb-3 block h-16 w-16 rounded-full object-cover"

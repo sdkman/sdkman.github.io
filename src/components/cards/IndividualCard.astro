@@ -10,7 +10,11 @@ interface Props {
 const { individual } = Astro.props;
 ---
 
-<Link class="card flex h-full flex-col items-center" href={individual.profile}>
+<Link
+  class="card flex h-full flex-col items-center"
+  href={individual.profile}
+  withoutStyle
+>
   <AvatarImage
     class="mb-3 block h-16 w-16 rounded-full object-cover"
     src={individual.image}

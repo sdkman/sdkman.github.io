@@ -32,7 +32,7 @@ export const buttonVariants = cva(
       variant: 'default',
       size: 'default',
     },
-  },
+  }
 );
 
 interface Props
@@ -59,6 +59,7 @@ const {
     <Link
       href={href}
       class:list={[buttonVariants({ variant, size }), className, classList]}
+      withoutStyle
       {...props}
     >
       <slot />

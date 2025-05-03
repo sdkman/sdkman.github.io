@@ -1,9 +1,17 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<'a'> {}
+interface Props extends HTMLAttributes<'a'> {
+  withoutStyle?: boolean;
+}
 
-const { href, ...props } = Astro.props;
+const {
+  href,
+  class: className,
+  'class:list': classList,
+  withoutStyle = false,
+  ...props
+} = Astro.props;
 
 let linkProps = { href, ...props };
 
@@ -12,6 +20,13 @@ if (!!href && href.toString().startsWith('http')) {
 }
 ---
 
-<a {...linkProps}>
+<a
+  class:list={[
+    !withoutStyle && 'text-blue-500 hover:underline',
+    className,
+    classList,
+  ]}
+  {...linkProps}
+>
   <slot />
 </a>

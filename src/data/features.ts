@@ -27,7 +27,7 @@ const features: Feature[] = [
       <strong>zip</strong>, and
       <strong>unzip</strong> dependencies to be present on your system.
       Even works with
-      <a href="http://www.zsh.org/">ZSH</a> too.
+      <a class="text-blue-500 hover:underline" href="http://www.zsh.org/">ZSH</a> too.
     `,
   },
   {
@@ -55,7 +55,7 @@ const features: Feature[] = [
       Backed by a global community of developers.
       <br />
       Licensed under
-      <a href="http://www.apache.org/licenses/LICENSE-2.0.html">
+      <a class="text-blue-500 hover:underline" href="http://www.apache.org/licenses/LICENSE-2.0.html">
         Apache 2.0
       </a>
     `,
