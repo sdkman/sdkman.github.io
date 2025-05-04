@@ -4,6 +4,7 @@ import Hero from '@site/src/components/sections/Hero';
 import Features from '@site/src/components/sections/Features';
 import { OpenCollectiveCarousel } from '@site/src/components/sections/OpenCollective';
 import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
+import Technologies from '@site/src/components/sections/Technologies';
 
 export default function WelcomePage() {
   return (
@@ -15,6 +16,7 @@ export default function WelcomePage() {
       <Hero />
 
       <main>
+        <Technologies />
         <Features />
         <OpenCollectiveCarousel />
       </main>
