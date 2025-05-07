@@ -54,7 +54,11 @@ const config: Config = {
     ],
   ],
 
-  plugins: ['docusaurus-plugin-sass', './src/plugins/google-fonts.ts'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    './src/plugins/google-fonts.ts',
+    './src/plugins/jdks-details.ts',
+  ],
 
   themeConfig: {
     metadata: [
