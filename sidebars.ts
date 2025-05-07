@@ -5,7 +5,6 @@ const sidebars: SidebarsConfig = {
     'install',
     'usage',
     'vendors',
-    { type: 'doc', label: 'JDKs', id: 'jdks' },
     { type: 'doc', label: 'SDKs', id: 'sdks' },
   ],
 };
