@@ -1,6 +1,21 @@
 import type { JDK } from '@site/src/types/jdk';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa6';
 
+const shortArchList = {
+  x86_64: 'x86_64',
+  arm64: 'AArch64',
+  arm32: 'AArch32',
+};
+
+const archList = {
+  linux_x86_64: 'Linux x86_64',
+  linux_arm: 'Linux AArch32',
+  linux_arm64: 'Linux AArch64',
+  macOS_x86_64: 'macOS x86_64',
+  macOS_arm64: 'macOS AArch64',
+  windows_x86_64: 'Windows x86_64',
+};
+
 const jdks: JDK[] = [
   {
     id: 'bsg',
@@ -8,8 +23,8 @@ const jdks: JDK[] = [
     distribution: 'BiSheng',
     url: 'https://www.openeuler.org/en/other/projects/bishengjdk/',
     architecture: {
-      short: ['amd64', 'arm64'],
-      long: ['linux amd64', 'linux arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
+      long: [archList.linux_x86_64, archList.linux_arm64],
     },
     os: {
       icons: [FaLinux],
@@ -31,13 +46,13 @@ const jdks: JDK[] = [
     distribution: 'Corretto',
     url: 'https://aws.amazon.com/corretto/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -57,8 +72,12 @@ const jdks: JDK[] = [
     distribution: 'Dragonwell',
     url: 'https://dragonwell-jdk.io',
     architecture: {
-      short: ['amd64', 'arm64'],
-      long: ['linux amd64', 'linux arm64', 'windows amd64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
+      long: [
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.windows_x86_64,
+      ],
     },
     os: {
       icons: [FaLinux, FaWindows],
@@ -75,13 +94,13 @@ const jdks: JDK[] = [
     distribution: 'GraalVM',
     url: 'https://www.graalvm.org/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -100,13 +119,13 @@ const jdks: JDK[] = [
     distribution: 'GraalVM',
     url: 'https://www.graalvm.org/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -127,13 +146,13 @@ const jdks: JDK[] = [
     distribution: 'Java SE Development Kit',
     url: 'https://www.oracle.com/java/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -152,13 +171,13 @@ const jdks: JDK[] = [
     distribution: 'Kona',
     url: 'https://tencent.github.io/konajdk/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -175,14 +194,14 @@ const jdks: JDK[] = [
     distribution: 'Liberica',
     url: 'https://bell-sw.com/',
     architecture: {
-      short: ['amd64', 'arm', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm32, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'linux arm',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -199,13 +218,13 @@ const jdks: JDK[] = [
     distribution: 'Liberica NIK',
     url: 'https://bell-sw.com/pages/liberica-native-image-kit',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -223,8 +242,13 @@ const jdks: JDK[] = [
     distribution: 'Mandrel',
     url: 'https://github.com/graalvm/mandrel',
     architecture: {
-      short: ['amd64', 'arm64'],
-      long: ['linux amd64', 'linux arm64', 'macOS arm64', 'windows amd64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
+      long: [
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
+      ],
     },
     os: {
       icons: [FaLinux, FaApple, FaWindows],
@@ -242,13 +266,13 @@ const jdks: JDK[] = [
     distribution: 'OpenJDK',
     url: 'https://www.microsoft.com/openjdk',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -267,13 +291,13 @@ const jdks: JDK[] = [
     distribution: 'OpenJDK',
     url: 'https://jdk.java.net/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -294,13 +318,13 @@ const jdks: JDK[] = [
     distribution: 'SapMachine',
     url: 'https://sap.github.io/SapMachine/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -318,13 +342,13 @@ const jdks: JDK[] = [
     distribution: 'Semeru',
     url: 'https://developer.ibm.com/languages/java/semeru-runtimes/',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -341,13 +365,13 @@ const jdks: JDK[] = [
     distribution: 'Temurin',
     url: 'https://projects.eclipse.org/projects/adoptium.temurin',
     architecture: {
-      short: ['amd64', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
@@ -366,8 +390,12 @@ const jdks: JDK[] = [
     distribution: 'Trava',
     url: 'https://github.com/TravaOpenJDK/trava-jdk-11-dcevm',
     architecture: {
-      short: ['amd64'],
-      long: ['linux amd64', 'macOS amd64', 'windows amd64'],
+      short: [shortArchList.x86_64],
+      long: [
+        archList.linux_x86_64,
+        archList.macOS_x86_64,
+        archList.windows_x86_64,
+      ],
     },
     os: {
       icons: [FaLinux, FaApple, FaWindows],
@@ -382,14 +410,14 @@ const jdks: JDK[] = [
     distribution: 'Zulu',
     url: 'https://www.azul.com/downloads/zulu/',
     architecture: {
-      short: ['amd64', 'arm', 'arm64'],
+      short: [shortArchList.x86_64, shortArchList.arm32, shortArchList.arm64],
       long: [
-        'linux amd64',
-        'linux arm64',
-        'linux arm',
-        'macOS amd64',
-        'macOS arm64',
-        'windows amd64',
+        archList.linux_x86_64,
+        archList.linux_arm,
+        archList.linux_arm64,
+        archList.macOS_x86_64,
+        archList.macOS_arm64,
+        archList.windows_x86_64,
       ],
     },
     os: {
