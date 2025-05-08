@@ -1,8 +1,10 @@
 import type { IconType } from 'react-icons';
 
 export type JDKArchitecture = {
-  icons: IconType[];
-  list: string[];
+  short: string[];
+  long: string[];
+  icons?: IconType[];
+  list?: string[];
 };
 
 export type JDKOS = {

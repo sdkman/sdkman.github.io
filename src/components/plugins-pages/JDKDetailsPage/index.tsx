@@ -65,12 +65,12 @@ export default function JDKDetailsPage() {
                 </div>
               )}
 
-              {JDK.architecture?.list && (
+              {JDK.architecture?.long && (
                 <div>
                   <div className={styles.cardSubtitle}>Architectures:</div>
 
                   <ul>
-                    {JDK.architecture?.list.map((arch, idx) => (
+                    {JDK.architecture?.long.map((arch, idx) => (
                       <li key={`arch-${JDK.id}-${idx}`}>{arch}</li>
                     ))}
                   </ul>

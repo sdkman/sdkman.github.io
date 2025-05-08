@@ -1,6 +1,5 @@
 import type { JDK } from '@site/src/types/jdk';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa6';
-import { SiAmd, SiArm } from 'react-icons/si';
 
 const jdks: JDK[] = [
   {
@@ -9,8 +8,8 @@ const jdks: JDK[] = [
     distribution: 'BiSheng',
     url: 'https://www.openeuler.org/en/other/projects/bishengjdk/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: ['linux amd64', 'linux arm64'],
+      short: ['amd64', 'arm64'],
+      long: ['linux amd64', 'linux arm64'],
     },
     os: {
       icons: [FaLinux],
@@ -32,8 +31,8 @@ const jdks: JDK[] = [
     distribution: 'Corretto',
     url: 'https://aws.amazon.com/corretto/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -58,8 +57,8 @@ const jdks: JDK[] = [
     distribution: 'Dragonwell',
     url: 'https://dragonwell-jdk.io',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: ['linux amd64', 'linux arm64', 'windows amd64'],
+      short: ['amd64', 'arm64'],
+      long: ['linux amd64', 'linux arm64', 'windows amd64'],
     },
     os: {
       icons: [FaLinux, FaWindows],
@@ -76,8 +75,8 @@ const jdks: JDK[] = [
     distribution: 'GraalVM',
     url: 'https://www.graalvm.org/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -101,8 +100,8 @@ const jdks: JDK[] = [
     distribution: 'GraalVM',
     url: 'https://www.graalvm.org/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -128,8 +127,8 @@ const jdks: JDK[] = [
     distribution: 'Java SE Development Kit',
     url: 'https://www.oracle.com/java/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -153,8 +152,8 @@ const jdks: JDK[] = [
     distribution: 'Kona',
     url: 'https://tencent.github.io/konajdk/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -176,8 +175,8 @@ const jdks: JDK[] = [
     distribution: 'Liberica',
     url: 'https://bell-sw.com/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'linux arm',
@@ -200,8 +199,8 @@ const jdks: JDK[] = [
     distribution: 'Liberica NIK',
     url: 'https://bell-sw.com/pages/liberica-native-image-kit',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -224,8 +223,8 @@ const jdks: JDK[] = [
     distribution: 'Mandrel',
     url: 'https://github.com/graalvm/mandrel',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: ['linux amd64', 'linux arm64', 'macOS arm64', 'windows amd64'],
+      short: ['amd64', 'arm64'],
+      long: ['linux amd64', 'linux arm64', 'macOS arm64', 'windows amd64'],
     },
     os: {
       icons: [FaLinux, FaApple, FaWindows],
@@ -243,8 +242,8 @@ const jdks: JDK[] = [
     distribution: 'OpenJDK',
     url: 'https://www.microsoft.com/openjdk',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -268,8 +267,8 @@ const jdks: JDK[] = [
     distribution: 'OpenJDK',
     url: 'https://jdk.java.net/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -295,8 +294,8 @@ const jdks: JDK[] = [
     distribution: 'SapMachine',
     url: 'https://sap.github.io/SapMachine/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -319,8 +318,8 @@ const jdks: JDK[] = [
     distribution: 'Semeru',
     url: 'https://developer.ibm.com/languages/java/semeru-runtimes/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -342,8 +341,8 @@ const jdks: JDK[] = [
     distribution: 'Temurin',
     url: 'https://projects.eclipse.org/projects/adoptium.temurin',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'macOS amd64',
@@ -367,8 +366,8 @@ const jdks: JDK[] = [
     distribution: 'Trava',
     url: 'https://github.com/TravaOpenJDK/trava-jdk-11-dcevm',
     architecture: {
-      icons: [SiAmd],
-      list: ['linux amd64', 'macOS amd64', 'windows amd64'],
+      short: ['amd64'],
+      long: ['linux amd64', 'macOS amd64', 'windows amd64'],
     },
     os: {
       icons: [FaLinux, FaApple, FaWindows],
@@ -383,8 +382,8 @@ const jdks: JDK[] = [
     distribution: 'Zulu',
     url: 'https://www.azul.com/downloads/zulu/',
     architecture: {
-      icons: [SiAmd, SiArm],
-      list: [
+      short: ['amd64', 'arm', 'arm64'],
+      long: [
         'linux amd64',
         'linux arm64',
         'linux arm',

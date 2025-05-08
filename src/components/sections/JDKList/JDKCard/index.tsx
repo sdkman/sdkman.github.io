@@ -30,14 +30,11 @@ export default function JDKCard({ item }: Props) {
             </div>
           )}
 
-          {item.architecture?.icons && (
+          {item.architecture?.short && (
             <div className={styles.cardSide}>
-              {item.architecture.icons.map((ArchIcon, idx) => (
-                <ArchIcon
-                  key={`jdk-arch-icon-${item.id}-${idx}`}
-                  className={styles.cardArchIcon}
-                />
-              ))}
+              <span className={styles.cardArch}>
+                {item.architecture.short.join(' / ')}
+              </span>
             </div>
           )}
         </div>

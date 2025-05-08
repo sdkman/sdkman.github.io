@@ -23,8 +23,9 @@
     height: 1.25rem;
   }
 
-  &ArchIcon {
-    width: 2rem;
-    height: 2rem;
+  &Arch {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
   }
 }
