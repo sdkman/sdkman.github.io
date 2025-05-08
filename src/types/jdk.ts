@@ -3,8 +3,6 @@ import type { IconType } from 'react-icons';
 export type JDKArchitecture = {
   short: string[];
   long: string[];
-  icons?: IconType[];
-  list?: string[];
 };
 
 export type JDKOS = {
