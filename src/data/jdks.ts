@@ -18,7 +18,7 @@ const archList = {
 
 const jdks: JDK[] = [
   {
-    id: 'bsg',
+    id: 'bisheng',
     vendor: 'Huawei',
     distribution: 'BiSheng',
     url: 'https://www.openeuler.org/en/other/projects/bishengjdk/',
