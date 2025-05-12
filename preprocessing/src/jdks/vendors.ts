@@ -24,9 +24,9 @@ const vendors = [
       extreme scaling.`,
   },
   {
-    id: 'bsg',
+    id: 'bisheng',
     vendor: 'Huawei',
-    distribution: 'Bisheng',
+    distribution: 'BiSheng',
     url: 'https://www.openeuler.org/en/other/projects/bishengjdk/',
     description: `BiSheng JDK, an open-source adaptation of Huawei JDK derived from
       OpenJDK, is utilized across 500+ Huawei products, benefitting from
