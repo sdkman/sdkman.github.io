@@ -105,4 +105,24 @@ And for installs on CI where shell config modification isn't appropriate, add
 curl -s "https://get.sdkman.io?rcupdate=false" | bash
 ```
 
+## CI Mode
+
+For automated environments like CI/CD pipelines, SDKMAN! offers a dedicated CI mode
+that optimizes the installation for non-interactive use:
+
+```shell
+curl -s "https://get.sdkman.io?ci=true" | bash
+```
+
+CI mode automatically:
+- Answers all prompts (sets `sdkman_auto_answer=true`)
+- Disables colored output for cleaner logs (sets `sdkman_colour_enable=false`)
+- Turns off the self-update feature to prevent unexpected updates (sets `sdkman_selfupdate_feature=false`)
+
+You can combine this with other parameters as needed:
+
+```shell
+curl -s "https://get.sdkman.io?ci=true&rcupdate=false" | bash
+```
+
 That's all there is to it! Now let's dive into [Usage](/usage).
