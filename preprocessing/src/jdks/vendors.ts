@@ -13,7 +13,7 @@ const vendors = [
       systems, including Linux, Windows, and macOS.`,
   },
   {
-    id: 'albba',
+    id: 'alibaba',
     vendor: 'Alibaba',
     distribution: 'Dragonwell',
     url: 'https://dragonwell-jdk.io',
