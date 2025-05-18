@@ -128,28 +128,78 @@ curl -X PUT \
 https://vendors.sdkman.io/default
 ```
 
-### Broadcast a Structured Message
+## GitHub Actions
 
-This will result in a structured message announcement on social media and
-SDKMAN! CLI. The result will look something like:
-`grails 3.0.0 available for download. https://git.io/release`. The url can point
-to the github release page or the version's changelog. This message will be
-announced to the broadcast channel of SDKMAN! CLI, as well as on the
-[@sdkman\_](https://x.com/sdkman_) X feed.
+If you're using GitHub Actions for your CI/CD pipeline, SDKMAN! provides official GitHub Actions that can help you automate the release process.
 
-```shell
-curl -X POST \
--H "Consumer-Key: CONSUMER_KEY" \
--H "Consumer-Token: CONSUMER_TOKEN" \
--H "Content-Type: application/json" \
--H "Accept: application/json" \
--d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
-https://vendors.sdkman.io/announce/struct
+### SDKMAN! Release Action
+
+The [SDKMAN! Release Action](https://github.com/sdkman/sdkman-release-action) allows you to release a new version of your candidate to SDKMAN! directly from your GitHub workflow.
+
+#### Features
+
+- Release a new version of your SDK to SDKMAN!
+- Support for multi-platform binaries
+- Support for multi-vendor candidates
+- Support for checksums
+
+#### Basic Usage
+
+```yaml
+name: Release to SDKMAN!
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release to SDKMAN!
+        uses: sdkman/sdkman-release-action@v0.2.0
+        with:
+          consumer_key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
+          consumer_token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
+          candidate: myCandidateName
+          version: ${{ github.event.release.tag_name }}
+          url: https://github.com/myorg/myrepo/releases/download/${{ github.event.release.tag_name }}/mycandidatename-${{ github.event.release.tag_name }}.zip
+```
+
+#### Advanced Usage
+
+For multi-platform releases or when adding checksums:
+
+```yaml
+name: Release Java to SDKMAN!
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release'
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release Linux x64 to SDKMAN!
+        uses: sdkman/sdkman-release-action@v0.2.0
+        with:
+          consumer-key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
+          consumer-token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
+          candidate: java
+          version: ${{ github.event.inputs.version }}
+          url: https://github.com/acme/java/releases/download/${{ github.event.inputs.version }}/java-linux-x64.tar.gz
+          platform: LINUX_64
+          checksum-md5: "abcd1234..."
+          checksum-sha-512: "efgh5678..."
 ```
 
 ## Gradle SDK Vendor Plugin
 
-If fiddling with cURL (or HttpClient) isn’t your thing, you could consider using
+If fiddling with cURL (or HttpClient) isn't your thing, you could consider using
 our Gradle plugin. The plugin allows the release to be done as a side effect of
 your CI build! It exposes several useful tasks like:
 
@@ -168,7 +218,7 @@ for the project.
 
 ## Maven SDK Vendor Plugin
 
-If fiddling with cURL (or HttpClient) or Gradle isn’t your thing, you could
+If fiddling with cURL (or HttpClient) or Gradle isn't your thing, you could
 consider using our Maven plugin. The plugin allows the release to be done as a
 side effect of your CI build! It exposes several useful goals like:
 
@@ -184,3 +234,22 @@ It also exposes some convenience goals that roll the above into single goals:
 For more details of about this plugin, as well as how to configure it, please
 refer to the [Github Page](https://github.com/sdkman/sdkman-vendor-maven-plugin)
 for the project.
+
+## Broadcast a Structured Message
+
+This will result in a structured message announcement on social media and
+SDKMAN! CLI. The result will look something like:
+`grails 3.0.0 available for download. https://git.io/release`. The url can point
+to the github release page or the version's changelog. This message will be
+announced to the broadcast channel of SDKMAN! CLI, as well as on the
+[@sdkman\_](https://x.com/sdkman_) X feed.
+
+```shell
+curl -X POST \
+-H "Consumer-Key: CONSUMER_KEY" \
+-H "Consumer-Token: CONSUMER_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
+https://vendors.sdkman.io/announce/struct
+```
