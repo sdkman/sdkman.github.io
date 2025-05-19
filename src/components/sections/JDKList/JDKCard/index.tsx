@@ -1,8 +1,7 @@
+import type { JDK } from '@site/src/types/jdk';
 import Link from '@docusaurus/Link';
 import clsx from 'clsx';
 import styles from './styles.module.scss';
-
-import { JDK } from '@site/src/types/jdk';
 
 type Props = {
   item: JDK;
