@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "preprocessing:start": "tsc --outDir ./preprocessing/out ./preprocessing/src/*.ts && node ./preprocessing/out/index.js",
-    "preprocessing:clear": "rm -rf ./preprocessing/out ./docs/jdks.mdx ./docs/sdks.mdx"
+    "preprocessing:clear": "rm -rf ./preprocessing/out ./src/data/jdks-versions.ts ./docs/sdks.mdx"
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
