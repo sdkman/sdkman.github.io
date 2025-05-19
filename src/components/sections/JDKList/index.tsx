@@ -42,8 +42,8 @@ export default function JDKList() {
         </Admonition>
 
         <div className={styles.sectionList}>
-          {jdks.map((JDK) => (
-            <JDKCard item={JDK} />
+          {jdks.map((JDK, idx) => (
+            <JDKCard key={`jdk-${idx}`} item={JDK} />
           ))}
         </div>
       </div>
