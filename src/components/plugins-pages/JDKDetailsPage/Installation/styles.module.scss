@@ -1,12 +1,14 @@
 .section {
   &TitleWrapper {
     display: flex;
-    align-items: flex-end;
     justify-content: space-between;
+  }
 
-    &Select {
-      margin: var(--ifm-heading-margin-top) 0 var(--ifm-heading-margin-bottom) 0;
-    }
+  &SelectWrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 1.125rem;
   }
 
   &BadgeList {

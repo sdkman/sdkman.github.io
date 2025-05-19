@@ -41,9 +41,8 @@ export default function Installation({ id, architecture }: Props) {
       <div className={styles.sectionTitleWrapper}>
         <Heading as="h2">Installation</Heading>
 
-        <div>
+        <div className={styles.sectionSelectWrapper}>
           <Select
-            className={styles.sectionTitleWrapperSelect}
             value={platform}
             items={architecture.map((arch) => arch.label)}
             position="right"
@@ -51,7 +50,6 @@ export default function Installation({ id, architecture }: Props) {
           />
 
           <Select
-            className={styles.sectionTitleWrapperSelect}
             value={version}
             items={versions}
             position="right"
