@@ -1,7 +1,6 @@
 import { Redirect, useLocation } from '@docusaurus/router';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Link from '@docusaurus/Link';
-import CodeBlock from '@theme/CodeBlock';
 import Heading from '@theme/Heading';
 import Layout from '@theme/Layout';
 import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
@@ -10,6 +9,7 @@ import styles from './styles.module.scss';
 
 import jdks from '@site/src/data/jdks';
 import { getNameFromPath } from '@site/src/lib/utils';
+import Installation from './Installation';
 
 export default function JDKDetailsPage() {
   const { siteConfig } = useDocusaurusContext();
@@ -37,13 +37,7 @@ export default function JDKDetailsPage() {
           <div>
             <p>{JDK.description}</p>
 
-            <div>
-              <Heading as="h2">Installation</Heading>
-
-              <CodeBlock language="shell">
-                sdk install java x.y.z-{JDK.id}
-              </CodeBlock>
-            </div>
+            <Installation id={JDK.id} architecture={JDK.architecture?.long} />
           </div>
 
           <div className={clsx('card', styles.card)}>
@@ -71,7 +65,7 @@ export default function JDKDetailsPage() {
 
                   <ul>
                     {JDK.architecture?.long.map((arch, idx) => (
-                      <li key={`arch-${JDK.id}-${idx}`}>{arch}</li>
+                      <li key={`arch-${JDK.id}-${idx}`}>{arch.label}</li>
                     ))}
                   </ul>
                 </div>

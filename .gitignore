@@ -25,3 +25,4 @@ yarn-error.log*
 # Hide auto generated doc pages
 /docs/jdks.mdx
 /docs/sdks.mdx
+/src/data/jdks-versions.ts

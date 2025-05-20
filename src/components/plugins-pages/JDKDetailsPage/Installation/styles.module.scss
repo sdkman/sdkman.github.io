@@ -1,0 +1,21 @@
+.section {
+  &TitleWrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &SelectWrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-bottom: 1.125rem;
+  }
+
+  &BadgeList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+}

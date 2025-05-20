@@ -1,4 +1,4 @@
-import type { JDK } from '@site/src/types/jdk';
+import type { Architecture, JDK } from '@site/src/types/jdk';
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa6';
 
 const shortArchList = {
@@ -7,13 +7,13 @@ const shortArchList = {
   arm32: 'AArch32',
 };
 
-const archList = {
-  linux_x86_64: 'Linux x86_64',
-  linux_arm: 'Linux AArch32',
-  linux_arm64: 'Linux AArch64',
-  macOS_x86_64: 'macOS x86_64',
-  macOS_arm64: 'macOS AArch64',
-  windows_x86_64: 'Windows x86_64',
+const archList: Record<string, Architecture> = {
+  linux_x86_64: { label: 'Linux x86_64', platformId: 'linuxx64' },
+  linux_arm: { label: 'Linux AArch32', platformId: 'linuxarm32hf' },
+  linux_arm64: { label: 'Linux AArch64', platformId: 'linuxarm64' },
+  macOS_x86_64: { label: 'macOS x86_64', platformId: 'darwinx64' },
+  macOS_arm64: { label: 'macOS AArch64', platformId: 'darwinarm64' },
+  windows_x86_64: { label: 'Windows x86_64', platformId: 'windowsx64' },
 };
 
 const jdks: JDK[] = [
