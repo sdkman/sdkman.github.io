@@ -58,6 +58,7 @@ const config: Config = {
     'docusaurus-plugin-sass',
     './src/plugins/google-fonts.ts',
     './src/plugins/jdks-details.ts',
+    './src/plugins/sdks-details.ts',
   ],
 
   themeConfig: {

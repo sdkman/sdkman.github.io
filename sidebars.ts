@@ -1,12 +1,7 @@
 import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  docSidebar: [
-    'install',
-    'usage',
-    'vendors',
-    { type: 'doc', label: 'SDKs', id: 'sdks' },
-  ],
+  docSidebar: ['install', 'usage', 'vendors'],
 };
 
 export default sidebars;

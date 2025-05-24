@@ -2,53 +2,21 @@ import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 export default async function generateSDKs() {
-  const sdksData = await fetchSdks();
+  const sdksData = await fetchSDKs();
   const sdks = parseSDKs(sdksData);
-  const sdkList = getSDKsMarkup(sdks);
-  const template = getMarkup(sdkList);
 
   try {
-    await writeFile(resolve(process.cwd(), './docs/sdks.mdx'), template);
+    await writeFile(
+      resolve(process.cwd(), './src/data/sdks.ts'),
+      `const sdks = ${JSON.stringify(sdks, null, 2)};\n\n` +
+        'export default sdks;',
+    );
   } catch (err) {
     console.error(err);
   }
 }
 
-function getMarkup(content: string) {
-  return `---
-title: SDK Installation Candidates
----
-
-{/* ATTENTION! Do not edit, the file is generated automatically by the plugin */}
-
-import DocsCarbonAds from '@site/src/components/sections/DocsCarbonAds';
-
-<DocsCarbonAds />
-
-${content}`;
-}
-
-function getSDKsMarkup(sdks: any[]) {
-  return sdks.reduce((acc, val) => {
-    const item = `
-## ${val.title} \\{#${val.id}\\}
-
-[${val.url}](${val.url})
-
-${val.description}
-
-\`\`\`shell
-sdk install ${val.id}
-\`\`\`
-`;
-
-    acc += `${item}`;
-
-    return acc;
-  }, '');
-}
-
-async function fetchSdks() {
+async function fetchSDKs() {
   try {
     const res = await fetch('https://api.sdkman.io/2/candidates/list');
 

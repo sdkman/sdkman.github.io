@@ -1,0 +1,36 @@
+@use '@site/src/scss/breakpoints' as *;
+
+.section {
+  margin-top: 4rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  &Title {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &List {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: $md-screen) {
+  .section {
+    &List {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
+
+@media (min-width: $lg-screen) {
+  .section {
+    margin-top: 0;
+
+    &List {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
