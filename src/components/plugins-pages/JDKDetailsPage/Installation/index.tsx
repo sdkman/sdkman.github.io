@@ -68,6 +68,7 @@ export default function Installation({ id, architecture }: Props) {
             <button
               className={clsx(
                 'badge',
+                styles.sectionBadge,
                 badgeVersion === version
                   ? 'badge--primary'
                   : 'badge--secondary',
