@@ -1,4 +1,5 @@
 import type { LoadContext } from '@docusaurus/types';
+
 import sdks from '../data/sdks';
 
 export default function sdksDetailsPlugin(context: LoadContext) {
@@ -11,7 +12,7 @@ export default function sdksDetailsPlugin(context: LoadContext) {
         addRoute({
           path: `${context.baseUrl}sdks/${SDK.id}`,
           component:
-            '@site/src/components/plugins-pages/SDKDetailsPage/index.tsx',
+            '@site/src/components/plugins-pages/SdkDetailsPage/index.tsx',
         });
       });
     },

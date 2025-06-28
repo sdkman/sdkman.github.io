@@ -1,4 +1,18 @@
 {
   "singleQuote": true,
-  "proseWrap": "always"
+  "proseWrap": "always",
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^@site/src/types/(.*)$",
+    "^react(/[^\\/]+)?$",
+    "<THIRD_PARTY_MODULES>",
+    "^@site/src/components/(.*)$",
+    "^@site/src/hooks/(.*)$",
+    "^@site/src/lib/(.*)$",
+    "^@site/src/data/(.*)$",
+    "^@site/src/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

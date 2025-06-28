@@ -2,6 +2,7 @@ import type {
   OpenCollectiveKeys,
   OpenCollectiveSponsor,
 } from '@site/src/types/open-collective';
+
 import fetchJsonp from 'fetch-jsonp';
 
 function prepareSponsors(sponsors: OpenCollectiveSponsor[]) {

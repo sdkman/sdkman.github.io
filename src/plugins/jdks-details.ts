@@ -1,4 +1,5 @@
 import type { LoadContext } from '@docusaurus/types';
+
 import jdks from '../data/jdks';
 
 export default function jdksDetailsPlugin(context: LoadContext) {
@@ -11,7 +12,7 @@ export default function jdksDetailsPlugin(context: LoadContext) {
         addRoute({
           path: `${context.baseUrl}jdks/${JDK.id}`,
           component:
-            '@site/src/components/plugins-pages/JDKDetailsPage/index.tsx',
+            '@site/src/components/plugins-pages/JdkDetailsPage/index.tsx',
         });
       });
     },

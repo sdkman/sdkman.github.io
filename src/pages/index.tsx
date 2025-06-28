@@ -1,10 +1,10 @@
 import Layout from '@theme/Layout';
 
-import Hero from '@site/src/components/sections/Hero';
-import Features from '@site/src/components/sections/Features';
-import { OpenCollectiveCarousel } from '@site/src/components/sections/OpenCollective';
-import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
-import Technologies from '@site/src/components/sections/Technologies';
+import PageCarbonAds from '@site/src/components/ads/PageCarbonAds';
+import Features from '@site/src/components/sections/home/Features';
+import Hero from '@site/src/components/sections/home/Hero';
+import OpenCollectiveCarousel from '@site/src/components/sections/home/OpenCollectiveCarousel';
+import Technologies from '@site/src/components/sections/home/Technologies';
 
 export default function WelcomePage() {
   return (

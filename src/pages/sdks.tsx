@@ -1,12 +1,13 @@
 import Layout from '@theme/Layout';
-import SDKList from '@site/src/components/sections/SDKList';
-import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
+
+import PageCarbonAds from '@site/src/components/ads/PageCarbonAds';
+import SdkList from '@site/src/components/sections/sdks/SdkList';
 
 export default function SDKsPage() {
   return (
     <Layout title="SDK Installation Candidates">
       <PageCarbonAds />
-      <SDKList />
+      <SdkList />
     </Layout>
   );
 }

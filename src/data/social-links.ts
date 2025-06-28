@@ -1,8 +1,8 @@
 import {
-  FaGithub,
   FaDiscord,
-  FaXTwitter,
+  FaGithub,
   FaStackOverflow,
+  FaXTwitter,
 } from 'react-icons/fa6';
 
 const socialLinks = [

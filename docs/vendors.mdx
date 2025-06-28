@@ -2,7 +2,7 @@
 title: Vendors
 ---
 
-import DocsCarbonAds from '@site/src/components/sections/DocsCarbonAds';
+import DocsCarbonAds from '@site/src/components/ads/DocsCarbonAds';
 
 <DocsCarbonAds />
 
@@ -130,11 +130,14 @@ https://vendors.sdkman.io/default
 
 ## GitHub Actions
 
-If you're using GitHub Actions for your CI/CD pipeline, SDKMAN! provides official GitHub Actions that can help you automate the release process.
+If you're using GitHub Actions for your CI/CD pipeline, SDKMAN! provides
+official GitHub Actions that can help you automate the release process.
 
 ### SDKMAN! Release Action
 
-The [SDKMAN! Release Action](https://github.com/sdkman/sdkman-release-action) allows you to release a new version of your candidate to SDKMAN! directly from your GitHub workflow.
+The [SDKMAN! Release Action](https://github.com/sdkman/sdkman-release-action)
+allows you to release a new version of your candidate to SDKMAN! directly from
+your GitHub workflow.
 
 #### Features
 
@@ -163,7 +166,10 @@ jobs:
           consumer_token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
           candidate: myCandidateName
           version: ${{ github.event.release.tag_name }}
-          url: https://github.com/myorg/myrepo/releases/download/${{ github.event.release.tag_name }}/mycandidatename-${{ github.event.release.tag_name }}.zip
+          url:
+            https://github.com/myorg/myrepo/releases/download/${{
+            github.event.release.tag_name }}/mycandidatename-${{
+            github.event.release.tag_name }}.zip
 ```
 
 #### Advanced Usage
@@ -191,10 +197,12 @@ jobs:
           consumer-token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
           candidate: java
           version: ${{ github.event.inputs.version }}
-          url: https://github.com/acme/java/releases/download/${{ github.event.inputs.version }}/java-linux-x64.tar.gz
+          url:
+            https://github.com/acme/java/releases/download/${{
+            github.event.inputs.version }}/java-linux-x64.tar.gz
           platform: LINUX_64
-          checksum-md5: "abcd1234..."
-          checksum-sha-512: "efgh5678..."
+          checksum-md5: 'abcd1234...'
+          checksum-sha-512: 'efgh5678...'
 ```
 
 ## Gradle SDK Vendor Plugin
