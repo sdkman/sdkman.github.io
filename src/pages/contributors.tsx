@@ -1,7 +1,7 @@
 import Layout from '@theme/Layout';
 
-import { OpenCollectiveList } from '@site/src/components/sections/OpenCollective';
-import PageCarbonAds from '@site/src/components/sections/PageCarbonAds';
+import PageCarbonAds from '@site/src/components/ads/PageCarbonAds';
+import OpenCollectiveList from '@site/src/components/sections/contributors/OpenCollectiveList';
 
 export default function ContributorsPage() {
   return (

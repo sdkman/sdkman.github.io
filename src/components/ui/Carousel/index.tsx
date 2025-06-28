@@ -1,8 +1,9 @@
 import * as React from 'react';
+
+import clsx from 'clsx';
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
 } from 'embla-carousel-react';
-import clsx from 'clsx';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
 
 import styles from './styles.module.scss';

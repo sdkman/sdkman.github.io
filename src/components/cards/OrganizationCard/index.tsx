@@ -1,10 +1,12 @@
 import type { OpenCollectiveSponsor } from '@site/src/types/open-collective';
+
 import Link from '@docusaurus/Link';
 import Heading from '@theme/Heading';
-import dayjs from 'dayjs';
 import clsx from 'clsx';
+import dayjs from 'dayjs';
 
 import AvatarImage from '@site/src/components/ui/AvatarImage';
+
 import styles from './styles.module.scss';
 
 type Props = {

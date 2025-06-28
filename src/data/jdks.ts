@@ -1,4 +1,5 @@
 import type { Architecture, JDK } from '@site/src/types/jdk';
+
 import { FaApple, FaLinux, FaWindows } from 'react-icons/fa6';
 
 const shortArchList = {

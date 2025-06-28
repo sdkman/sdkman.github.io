@@ -1,0 +1,41 @@
+import {
+  SiApacheant,
+  SiApacheflink,
+  SiApachegroovy,
+  SiApachehadoop,
+  SiApachejmeter,
+  SiApachemaven,
+  SiApachespark,
+  SiApachetomcat,
+  SiAsciidoctor,
+  SiEclipsejetty,
+  SiEclipsevertdotx,
+  SiGradle,
+  SiKotlin,
+  SiLiquibase,
+  SiQuarkus,
+  SiScala,
+  SiSpringboot,
+} from 'react-icons/si';
+
+const technologies = [
+  { icon: SiApacheant },
+  { icon: SiAsciidoctor },
+  { icon: SiApacheflink },
+  { icon: SiGradle },
+  { icon: SiApachegroovy },
+  { icon: SiApachehadoop },
+  { icon: SiEclipsejetty },
+  { icon: SiApachejmeter },
+  { icon: SiKotlin },
+  { icon: SiLiquibase },
+  { icon: SiApachemaven },
+  { icon: SiQuarkus },
+  { icon: SiScala },
+  { icon: SiApachespark },
+  { icon: SiSpringboot },
+  { icon: SiApachetomcat },
+  { icon: SiEclipsevertdotx },
+];
+
+export default technologies;

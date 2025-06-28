@@ -2,7 +2,7 @@
 title: Installation
 ---
 
-import DocsCarbonAds from '@site/src/components/sections/DocsCarbonAds';
+import DocsCarbonAds from '@site/src/components/ads/DocsCarbonAds';
 
 <DocsCarbonAds />
 
@@ -107,17 +107,19 @@ curl -s "https://get.sdkman.io?rcupdate=false" | bash
 
 ## CI Mode
 
-For automated environments like CI/CD pipelines, SDKMAN! offers a dedicated CI mode
-that optimizes the installation for non-interactive use:
+For automated environments like CI/CD pipelines, SDKMAN! offers a dedicated CI
+mode that optimizes the installation for non-interactive use:
 
 ```shell
 curl -s "https://get.sdkman.io?ci=true" | bash
 ```
 
 CI mode automatically:
+
 - Answers all prompts (sets `sdkman_auto_answer=true`)
 - Disables colored output for cleaner logs (sets `sdkman_colour_enable=false`)
-- Turns off the self-update feature to prevent unexpected updates (sets `sdkman_selfupdate_feature=false`)
+- Turns off the self-update feature to prevent unexpected updates (sets
+  `sdkman_selfupdate_feature=false`)
 
 You can combine this with other parameters as needed:
 
