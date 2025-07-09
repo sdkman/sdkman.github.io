@@ -46,6 +46,8 @@ async function getOpenCollective(key: OpenCollectiveKeys) {
   } catch (err) {
     console.error(err);
   }
+
+  return [];
 }
 
 export const openCollectiveService = {
