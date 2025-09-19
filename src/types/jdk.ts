@@ -32,3 +32,8 @@ export type JDK = {
   isDefault?: boolean;
   description: string;
 };
+
+export type JDKVersion = {
+  platform: Platform;
+  versions: { version: string; dist: string }[];
+};

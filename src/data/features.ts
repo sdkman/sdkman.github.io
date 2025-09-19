@@ -1,11 +1,11 @@
-import ArrowsClockIcon from '@site/src/components/icons/ArrowsClockIcon';
-import CodeIcon from '@site/src/components/icons/CodeIcon';
-import DukeIcon from '@site/src/components/icons/DukeIcon';
-import GearIcon from '@site/src/components/icons/GearIcon';
-import ListIcon from '@site/src/components/icons/ListIcon';
-import SettingsIcon from '@site/src/components/icons/SettingsIcon';
+import ArrowsClockIcon from '@/components/icons/arrows-clock-icon';
+import CodeIcon from '@/components/icons/code-icon';
+import DukeIcon from '@/components/icons/duke-icon';
+import GearIcon from '@/components/icons/gear-icon';
+import ListIcon from '@/components/icons/list-icon';
+import SettingsIcon from '@/components/icons/settings-icon';
 
-const features = [
+export const features = [
   {
     icon: ArrowsClockIcon,
     title: 'By Developers, for Developers',
@@ -66,5 +66,3 @@ const features = [
     `,
   },
 ];
-
-export default features;

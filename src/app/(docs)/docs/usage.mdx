@@ -1,0 +1,450 @@
+---
+title: Usage
+---
+
+## Installing an SDK
+
+### Latest Stable
+
+Install the **latest stable** version of your SDK of choice (say, Java JDK) by
+running the following command:
+
+```shell
+sdk install java
+```
+
+You will see something like the following output:
+
+```shell
+Downloading: java 21.0.4-tem
+
+In progress...
+
+######################################################################## 100.0%
+
+Installing: java 21.0.4-tem
+Done installing!
+```
+
+Now you will be prompted if you want this version to be set as **default.**
+
+```shell
+Do you want java 21.0.4-tem to be set as default? (Y/n):
+```
+
+Answering _yes_ (or _hitting enter_) will ensure that all subsequent shells
+opened will have this version of the SDK in use by default.
+
+```shell
+Setting java 21.0.4-tem as default.
+```
+
+### Specific Version
+
+Need a **specific** version of an SDK? Simply qualify the version you require:
+
+```shell
+sdk install scala 3.4.2
+```
+
+All subsequent steps same as above.
+
+### Install Local Version(s)
+
+Using a snapshot version? Already have a local installation? Setup a local
+version by specifying the path to the local installation:
+
+```shell
+sdk install groovy 3.0.0-SNAPSHOT /path/to/groovy-3.0.0-SNAPSHOT
+```
+
+```shell
+sdk install java 17-zulu /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+```
+
+Note that the local version name (_3.0.0-SNAPSHOT_ and _17-zulu_ in the examples
+above) must be a unique name which is not already in the list of available
+version names.
+
+## Remove Version
+
+Remove an installed version.
+
+```shell
+sdk uninstall scala 3.4.2
+```
+
+Note that removing a local version will not remove the local installation.
+
+## List Candidates
+
+To get a listing of available Candidates:
+
+```shell
+sdk list
+```
+
+This will render a searchable alphabetic list with name, current stable default
+version, website URL, description and easy install command for each Candidate.
+The output is piped to `less` so standard keyboard shortcuts may be used with
+`q` to exit.
+
+```shell
+================================================================================
+Available Candidates
+================================================================================
+q-quit                                  /-search down
+j-down                                  ?-search up
+k-up                                    h-help
+--------------------------------------------------------------------------------
+...
+--------------------------------------------------------------------------------
+Java (21.0.4-tem)        https://projects.eclipse.org/projects/adoptium.temurin/
+
+Java Platform, Standard Edition (or Java SE) is a widely used platform for
+development and deployment of portable code for desktop and server environments.
+Java SE uses the object-oriented Java programming language. It is part of the
+Java software-platform family. Java SE defines a wide range of general-purpose
+APIs – such as Java APIs for the Java Class Library – and also includes the Java
+Language Specification and the Java Virtual Machine Specification.
+
+$ sdk install java
+--------------------------------------------------------------------------------
+...
+```
+
+## List Versions
+
+To get a listing of Candidate Versions:
+
+```shell
+sdk list groovy
+```
+
+This will result in a list view showing the available, local, installed and
+current versions of the SDK.
+
+```shell
+================================================================================
+Available Groovy Versions
+================================================================================
+> * 2.4.4                2.3.1                2.0.8                1.8.3
+2.4.3                2.3.0                2.0.7                1.8.2
+2.4.2                2.2.2                2.0.6                1.8.1
+2.4.1                2.2.1                2.0.5                1.8.0
+2.4.0                2.2.0                2.0.4                1.7.9
+2.3.9                2.1.9                2.0.3                1.7.8
+2.3.8                2.1.8                2.0.2                1.7.7
+2.3.7                2.1.7                2.0.1                1.7.6
+2.3.6                2.1.6                2.0.0                1.7.5
+2.3.5                2.1.5                1.8.9                1.7.4
+2.3.4                2.1.4                1.8.8                1.7.3
+2.3.3                2.1.3                1.8.7                1.7.2
+2.3.2                2.1.2                1.8.6                1.7.11
+2.3.11               2.1.1                1.8.5                1.7.10
+2.3.10               2.1.0                1.8.4                1.7.1
+
+================================================================================
++ - local version
+* - installed
+> - currently in use
+================================================================================
+```
+
+## Use Version
+
+Choose to use a given version in the current terminal:
+
+```shell
+sdk use scala 3.4.2
+```
+
+It is important to realise that this will switch the candidate version **for the
+current shell only**. To make this change permanent, use the `default` command
+instead.
+
+## Default Version
+
+Chose to make a given version the default:
+
+```shell
+sdk default scala 3.4.2
+```
+
+This will ensure that all subsequent shells will start with version 3.4.2 in
+use.
+
+## Current Version(s)
+
+To see what is currently in use for a Candidate:
+
+```shell
+sdk current java
+
+Using java version 21.0.4-tem
+```
+
+To see what is currently in use for **all** Candidates:
+
+```shell
+sdk current
+
+Using:
+groovy: 4.0.22
+java: 21.0.4-tem
+scala: 3.4.2
+```
+
+## Env Command
+
+Want to switch to a specific JDK or SDK every time you visit a project? This can
+be achieved through an `.sdkmanrc` file in the base directory of your project.
+This file can be generated automatically by issuing the following command:
+
+```shell
+sdk env init
+```
+
+A config file with the following content has now been created in the current
+directory:
+
+```shell
+# Enable auto-env through the sdkman_auto_env config
+# Add key=value pairs of SDKs to use below
+java=21.0.4-tem
+```
+
+The file is pre-populated with the current JDK version in use, but can contain
+as many key-value pairs of supported SDKs as needed. To switch to the
+configuration present in your `.sdkmanrc` file, simply issue the following
+command:
+
+```shell
+sdk env
+```
+
+You should see output that looks something like this:
+
+```shell
+Using java version 21.0.4-tem in this shell.
+```
+
+Your path has now also been updated to use any of these SDKs in your current
+shell. When leaving a project, you may want to reset the SDKs to their default
+version. This can be achieved by entering:
+
+```shell
+sdk env clear
+
+Restored java version to 21.0.4-tem (default)
+```
+
+After checking out a new project, you may be missing some SDKs specified in the
+project's `.sdkmanrc` file. To install these missing SDKs, just type:
+
+```shell
+sdk env install
+
+Downloading: java 21.0.4-tem
+
+In progress...
+
+######################################################################## 100,0%
+
+Repackaging Java 21.0.4-tem...
+
+Done repackaging...
+
+Installing: java 21.0.4-tem
+Done installing!
+```
+
+Do you want to switch SDK versions automatically when you `cd` into a directory?
+This can be done by setting the `sdkman_auto_env=true` in the SDKMAN
+configuration. Note that this will also reset any project-specific SDKs to their
+default version when leaving the directory.
+
+## Upgrade Version(s)
+
+To see what is currently out of date for a Candidate on your system:
+
+```shell
+sdk upgrade springboot
+
+Upgrade:
+springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 3.3.1)
+```
+
+To see what is outdated for **all** Candidates:
+
+```shell
+sdk upgrade
+
+Upgrade:
+gradle (2.3, 1.11, 2.4, 2.5 < 8.9)
+grails (2.5.1 < 6.2.0)
+springboot (1.2.4.RELEASE, 1.2.3.RELEASE < 3.3.1
+```
+
+## SDKMAN! Version
+
+Display the current script and native versions of SDKMAN!:
+
+```shell
+sdk version
+
+SDKMAN!
+script: 5.7.0
+native: 0.1.3
+```
+
+## Offline Mode
+
+Initially called _Aeroplane Mode_, this allows SDKMAN! to function when working
+offline. It has a parameter that can be passed to _enable_ or _disable_ the
+offline mode.
+
+```shell
+sdk offline enable
+
+Forced offline mode enabled.
+```
+
+```shell
+sdk offline disable
+
+Online mode re-enabled!
+```
+
+When operating in **offline** mode, most commands will still work even though
+they will operate in a scaled down capacity. An example is the list command,
+which will only display the currently installed and active version(s):
+
+```shell
+sdk list groovy
+
+------------------------------------------------------------
+Offline Mode: only showing installed groovy versions
+------------------------------------------------------------
+> 2.4.4
+* 2.4.3
+------------------------------------------------------------
+* - installed
+> - currently in use
+------------------------------------------------------------
+```
+
+The offline mode will also be disabled/enabled automatically when the internet
+becomes available/unavailable. Naturally, commands that require internet
+connectivity will not function but give a warning.
+
+## Self-Update
+
+Installs a new version of SDKMAN! if available.
+
+```shell
+sdk selfupdate
+```
+
+If no new version is available an appropriate message will be displayed.
+Re-installation may be forced by passing the force parameter to the command:
+
+```shell
+sdk selfupdate force
+```
+
+Automatic daily checks for new versions of SDKMAN! will also be performed on the
+behalf of the user.
+
+## Update
+
+Periodically SDKMAN! requires a refresh to become aware of new (or removed)
+candidates. When candidate metadata has potentially grown stale, a warning is
+displayed with instruction on how to update. By simply running the following
+command, the candidate cache will be refreshed and new candidates will become
+available for installation:
+
+```shell
+WARNING: SDKMAN is out-of-date and requires an update.
+
+sdk update
+
+Adding new candidates(s): kotlin
+```
+
+## Flush
+
+It should rarely be necessary to flush SDKMAN!'s local state. The flush command
+helps with this, so you don't need to delete any directories. **Manually
+deleting directories like the `.sdkman/tmp` directory will break SDKMAN! Always
+use the `flush` command instead!**
+
+```shell
+sdk flush
+```
+
+## Home
+
+When using SDKMAN in scripts, it is often useful to get the absolute path of
+where an SDK resides (similar to how the `java_home` command works on macOS).
+For this we have the `home` command.
+
+```shell
+sdk home java 21.0.4-tem
+
+/home/myuser/.sdkman/candidates/java/21.0.4-tem
+```
+
+## Help
+
+You can get basic help by running the following command:
+
+```shell
+sdk help
+```
+
+This should render a useful top-level help page. You can add qualifier to this
+command to get help about a specific sub-command.
+
+```shell
+sdk help install
+```
+
+## Configuration
+
+Configuration can be found in the `~/.sdkman/etc/config` file. To edit the
+configuration, the `sdk config` command may be issued to edit this file in the
+system editor. The following configurations are available:
+
+```shell
+# make sdkman non-interactive, preferred for CI environments
+sdkman_auto_answer=true|false
+
+# check for newer versions and prompt for update
+sdkman_selfupdate_feature=true|false
+
+# disables SSL certificate verification
+# https://github.com/sdkman/sdkman-cli/issues/327
+# HERE BE DRAGONS....
+sdkman_insecure_ssl=true|false
+
+# configure curl timeouts
+sdkman_curl_connect_timeout=5
+sdkman_curl_continue=true
+sdkman_curl_max_time=10
+
+# subscribe to the beta channel
+sdkman_beta_channel=true|false
+
+# enable verbose debugging
+sdkman_debug_mode=true|false
+
+# enable colour mode
+sdkman_colour_enable=true|false
+
+# enable automatic env
+sdkman_auto_env=true|false
+
+# enable bash or zsh auto-completion
+sdkman_auto_complete=true|false
+```

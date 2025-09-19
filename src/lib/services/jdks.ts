@@ -1,12 +1,22 @@
-import jdksVersions from '@site/src/data/jdks-versions';
+import type { JDKVersion } from '@/types/jdk';
 
-function getVersions(platformId: string, vendorId: string): string[] {
-  const JDKsByPlatform = jdksVersions.find(
+import jdks from '@/data/jdks';
+
+async function getVersions(
+  platformId: string,
+  vendorId: string,
+): Promise<string[]> {
+  const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000';
+
+  const data = await fetch(`${BASE_URL}/api/jdks-versions.json`);
+  const jdksVersions: JDKVersion[] = await data.json();
+
+  const jdksByPlatform = jdksVersions.find(
     (item) => item.platform === platformId,
   );
 
-  if (!!JDKsByPlatform) {
-    return JDKsByPlatform.versions
+  if (!!jdksByPlatform) {
+    return jdksByPlatform.versions
       .filter((item) => item.dist === vendorId)
       .map((item) => item.version);
   }
@@ -14,6 +24,15 @@ function getVersions(platformId: string, vendorId: string): string[] {
   return [];
 }
 
+function generateParams() {
+  return jdks.reduce<Record<'id', string>[]>((acc, val) => {
+    acc.push({ id: val.id });
+
+    return acc;
+  }, []);
+}
+
 export const jdksService = {
   getVersions,
+  generateParams,
 };

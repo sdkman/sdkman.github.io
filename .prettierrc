@@ -1,16 +1,16 @@
 {
   "singleQuote": true,
   "proseWrap": "always",
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
   "importOrder": [
-    "^@site/src/types/(.*)$",
+    "^@/types/(.*)$",
     "^react(/[^\\/]+)?$",
+    "^next(/[^\\/]+)?$",
     "<THIRD_PARTY_MODULES>",
-    "^@site/src/components/(.*)$",
-    "^@site/src/hooks/(.*)$",
-    "^@site/src/lib/(.*)$",
-    "^@site/src/data/(.*)$",
-    "^@site/src/(.*)$",
+    "^@/(.*)$",
     "^[./]"
   ],
   "importOrderSeparation": true,

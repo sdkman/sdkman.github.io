@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://sdkman.io">SDKMAN!</a> Website built using <a href="https://docusaurus.io/">Docusaurus</a>, a modern static website generator.
+  <a href="https://sdkman.io">SDKMAN!</a> Website built using <a href="https://nextjs.org">Next.js</a>.
 </p>
 <br />
 
@@ -11,32 +11,18 @@ $ npm i
 
 ### Local Development
 
-```
-$ npm start
+```bash
+$ npm run dev
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+### Local Build
 
-### Build
-
-```
+```bash
 $ npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+### Production Build
 
-### Deployment
-
-Using SSH:
-
+```bash
+$ NEXT_PUBLIC_BASE_URL=https://sdkman.io npm run build
 ```
-$ USE_SSH=true npm run deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.

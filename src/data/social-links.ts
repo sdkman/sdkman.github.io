@@ -1,4 +1,5 @@
 import {
+  FaBluesky,
   FaDiscord,
   FaGithub,
   FaStackOverflow,
@@ -8,23 +9,28 @@ import {
 const socialLinks = [
   {
     icon: FaGithub,
-    href: 'https://github.com/sdkman',
-    alt: 'GitHub',
+    name: 'GitHub',
+    url: 'https://github.com/sdkman',
   },
   {
     icon: FaDiscord,
-    href: 'https://discord.gg/y9mVJYVyu4',
-    alt: 'Discord',
+    name: 'Discord',
+    url: 'https://discord.gg/y9mVJYVyu4',
+  },
+  {
+    icon: FaBluesky,
+    name: 'Bluesky',
+    url: 'https://bsky.app/profile/sdkman.io',
   },
   {
     icon: FaXTwitter,
-    href: 'https://x.com/sdkman_',
-    alt: 'X',
+    name: 'X',
+    url: 'https://x.com/sdkman_',
   },
   {
     icon: FaStackOverflow,
-    href: 'http://stackoverflow.com/questions/tagged/sdkman',
-    alt: 'Stack Overflow',
+    name: 'Stack Overflow',
+    url: 'http://stackoverflow.com/questions/tagged/sdkman',
   },
 ];
 

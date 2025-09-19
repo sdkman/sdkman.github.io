@@ -1,0 +1,128 @@
+---
+title: Installation
+---
+
+Installing SDKMAN! on UNIX is a breeze. It effortlessly sets up on macOS, Linux
+and Windows (with WSL). Plus, it's compatible with both Bash and ZSH shells.
+
+Just launch a new terminal and type in:
+
+```shell
+curl -s "https://get.sdkman.io" | bash
+```
+
+Follow the on-screen instructions to wrap up the installation. Afterward, open a
+new terminal or run the following in the same shell:
+
+```shell
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+
+Lastly, run the following snippet to confirm the installation's success:
+
+```shell
+sdk version
+```
+
+You should see output containing the latest script and native versions:
+
+```shell
+SDKMAN!
+script: 5.19.0
+native: 0.5.0
+```
+
+## Windows installation
+
+For Windows, there are two installation routes:
+
+1. **WSL Approach**: Install Windows Subsystem for Linux (WSL) before attempting
+   SDKMAN installation. A basic toolset (bash, zip, unzip, curl) is necessary.
+   Most times, it works out of the box.
+2. **Git Bash Solution**: If you use Git Bash for Windows, you'll need to
+   supplement it with MinGW to have the required toolset for SDKMAN. There are
+   some issues with this approach, but it works for the most part.
+
+<Alert className="my-4">
+  <AlertCircleIcon />
+  <AlertTitle>Note</AlertTitle>
+  <AlertDescription>
+    Remember, SDKMAN requires a bash environment to run. On Windows, it can't be
+    natively installed; you need WSL or MSYS+MinGW. We no longer support Cygwin.
+  </AlertDescription>
+</Alert>
+
+## Beta channel
+
+To leave the beta channel, simply set `sdkman_beta_channel` to false in
+`~/.sdkman/etc/config`, then run:
+
+```shell
+sdk selfupdate force
+```
+
+## Uninstallation
+
+Here is how you go about removing SDKMAN! from your system:
+
+1. Optionally backup and then remove the installation:
+
+   ```shell
+   tar zcvf ~/sdkman-backup_$(date +%F-%kh%M).tar.gz -C ~/ .sdkman
+   rm -rf ~/.sdkman
+   ```
+
+2. Remove initialization snippet from your shell configs. Edit and remove the
+   initialisation snippet from your `.bashrc`, `.bash_profile` and/or `.profile`
+   files. If you use ZSH, remove it from the `.zshrc` file. The snippet of code
+   to be removed looks something like this:
+
+   ```shell
+   #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+   [[ -s "/home/dudette/.sdkman/bin/sdkman-init.sh" ]] && source "/home/dudette/.sdkman/bin/sdkman-init.sh"
+   ```
+
+   Once removed, you have successfully uninstalled SDKMAN! from your machine.
+
+## Install to a custom location
+
+Lastly, if you want to install SDKMAN! in a custom location, like
+`/usr/local/sdkman`, make sure you have full access rights and that the folder
+doesn't exist. Export `SDKMAN_DIR` before installing:
+
+```shell
+export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash
+```
+
+## Install without modifying shell config
+
+And for installs on CI where shell config modification isn't appropriate, add
+`rcupdate=false` as a parameter when downloading the installer:
+
+```shell
+curl -s "https://get.sdkman.io?rcupdate=false" | bash
+```
+
+## CI Mode
+
+For automated environments like CI/CD pipelines, SDKMAN! offers a dedicated CI
+mode that optimizes the installation for non-interactive use:
+
+```shell
+curl -s "https://get.sdkman.io?ci=true" | bash
+```
+
+CI mode automatically:
+
+- Answers all prompts (sets `sdkman_auto_answer=true`)
+- Disables colored output for cleaner logs (sets `sdkman_colour_enable=false`)
+- Turns off the self-update feature to prevent unexpected updates (sets
+  `sdkman_selfupdate_feature=false`)
+
+You can combine this with other parameters as needed:
+
+```shell
+curl -s "https://get.sdkman.io?ci=true&rcupdate=false" | bash
+```
+
+That's all there is to it! Now let's dive into [Usage](/usage).

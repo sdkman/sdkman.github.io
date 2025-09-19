@@ -1,0 +1,259 @@
+---
+title: Vendors
+---
+
+SDKMAN! is unique in that it empowers SDK Vendors to publish their candidate
+releases on our platform. We provide a secure API that can be used to manage all
+aspects of a release on SDKMAN!. Such aspects include **Releasing** a new
+version, setting an existing version as **Default** (Stable) and **Announcing**
+the release on the SDKMAN! CLI broadcast and Twitter feed.
+
+## Operations
+
+The API is a simple JSON REST API that allows three basic operations:
+
+- Release a new candidate version
+- Set the default for a candidate
+- Broadcast a release message
+
+## Access
+
+This is a secured API, and requires appropriate credentials to perform the above
+operations. Access will be granted on a case-by-case basis to Vendors who are
+interested in making their SDK available on SDKMAN!. If you want to publish your
+releases on SDKMAN!, please follow the Vendor Onboarding
+[wiki page](https://github.com/sdkman/sdkman-cli/wiki/Vendor-onboarding-process)
+and then [contact us](mailto:info@sdkman.io) for help with setting up your
+credentials.
+
+## Endpoints
+
+The simplest way to call the API is by using [curl](https://curl.se/). Of
+course, any other client can be used to perform the API operations.
+
+### Release a new Candidate Version
+
+This will perform a minor release on SDKMAN!. It will simply add the new
+candidate version, but will not make it the default version for that candidate.
+This endpoint supports `POST` and `DELETE` HTTP methods. The `POST` endpoint is
+idempotent.
+
+```shell
+curl -X POST \
+-H "Consumer-Key: CONSUMER_KEY" \
+-H "Consumer-Token: CONSUMER_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"candidate": "groovy", "version": "2.4.2", "url": "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-2.4.6.zip"}' \
+https://vendors.sdkman.io/release
+```
+
+#### Multi-platform binary distributions
+
+We support both universal and multi-platform binary distributions. Universal
+binaries run on all platforms, so you need to publish only a single SDK archive
+to our API. Multi-platform APIs are compiled specifically for the target
+platform and require an archive per target platform to be published. We
+currently support the following platforms:
+
+- LINUX_64
+- LINUX_ARM64
+- LINUX_32
+- LINUX_ARM32SF
+- LINUX_ARM32HF
+- MAC_OSX
+- MAC_ARM64
+- WINDOWS_64
+
+To indicate the target platform, a `platform` key with associated platform
+should be included in the payload. If no `platform` is included, we assume the
+value to be `UNIVERSAL`.
+
+#### Multi-vendor candidates
+
+For vendors who wish to publish to a multi-vendor candidate like Java or JMC, we
+require the presence of a _vendor string_ in the JSON payload. This will result
+in a new version comprised of `$version-$vendor`, so in this case it would
+appear as `11.0.10-zulu` on SDKMAN!.
+
+#### Checksums
+
+An optional map of `checksums` may be provided in the payload for each published
+binary. Supported checksum algorithms are:
+
+- MD5
+- SHA-1
+- SHA-224
+- SHA-256
+- SHA-384
+- SHA-512
+
+#### Sample payload
+
+An example payload demonstrating the release of a multi-platform Java binary for
+`LINUX_64` published by Azul as `zulu` with two checksums will look something
+like this:
+
+```json
+{
+  "candidate": "java",
+  "version": "11.0.10",
+  "vendor": "zulu",
+  "url": "https://cdn.azul.com/zulu/bin/zulu11.45.27-ca-jdk11.0.10-linux_x64.tar.gz",
+  "platform": "LINUX_64",
+  "checksums": {
+    "MD5": "93c9d427af64f2da8c00c9219360815b",
+    "SHA-256": "0bd85593bae021314378f3b146cfe36a6c9b0afd964d897c34201034ace3e785"
+  }
+}
+```
+
+### Set existing Version as Default for Candidate
+
+When calling this endpoint for an existing candidate version, it will make it
+the default version for that candidate. This makes a minor release a major
+release!
+
+```shell
+curl -X PUT \
+-H "Consumer-Key: CONSUMER_KEY" \
+-H "Consumer-Token: CONSUMER_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"candidate": "groovy", "version": "2.3.8"}' \
+https://vendors.sdkman.io/default
+```
+
+## GitHub Actions
+
+If you're using GitHub Actions for your CI/CD pipeline, SDKMAN! provides
+official GitHub Actions that can help you automate the release process.
+
+### SDKMAN! Release Action
+
+The [SDKMAN! Release Action](https://github.com/sdkman/sdkman-release-action)
+allows you to release a new version of your candidate to SDKMAN! directly from
+your GitHub workflow.
+
+#### Features
+
+- Release a new version of your SDK to SDKMAN!
+- Support for multi-platform binaries
+- Support for multi-vendor candidates
+- Support for checksums
+
+#### Basic Usage
+
+```yaml
+name: Release to SDKMAN!
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release to SDKMAN!
+        uses: sdkman/sdkman-release-action@v0.2.0
+        with:
+          consumer_key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
+          consumer_token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
+          candidate: myCandidateName
+          version: ${{ github.event.release.tag_name }}
+          url:
+            https://github.com/myorg/myrepo/releases/download/${{
+            github.event.release.tag_name }}/mycandidatename-${{
+            github.event.release.tag_name }}.zip
+```
+
+#### Advanced Usage
+
+For multi-platform releases or when adding checksums:
+
+```yaml
+name: Release Java to SDKMAN!
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release'
+        required: true
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release Linux x64 to SDKMAN!
+        uses: sdkman/sdkman-release-action@v0.2.0
+        with:
+          consumer-key: ${{ secrets.SDKMAN_CONSUMER_KEY }}
+          consumer-token: ${{ secrets.SDKMAN_CONSUMER_TOKEN }}
+          candidate: java
+          version: ${{ github.event.inputs.version }}
+          url:
+            https://github.com/acme/java/releases/download/${{
+            github.event.inputs.version }}/java-linux-x64.tar.gz
+          platform: LINUX_64
+          checksum-md5: 'abcd1234...'
+          checksum-sha-512: 'efgh5678...'
+```
+
+## Gradle SDK Vendor Plugin
+
+If fiddling with cURL (or HttpClient) isn't your thing, you could consider using
+our Gradle plugin. The plugin allows the release to be done as a side effect of
+your CI build! It exposes several useful tasks like:
+
+- `sdkReleaseVersion`
+- `sdkDefaultVersion`
+- `sdkAnnounceVersion`
+
+It also exposes some convenience tasks that roll the above into single tasks:
+
+- `sdkMajorRelease`: performs release, default and structured announce
+- `sdkMinorRelease`: performs release and structured announce, _no_ default
+
+For more details of about this plugin, as well as how to configure it, please
+refer to the [Github Page](https://github.com/sdkman/gradle-sdkvendor-plugin)
+for the project.
+
+## Maven SDK Vendor Plugin
+
+If fiddling with cURL (or HttpClient) or Gradle isn't your thing, you could
+consider using our Maven plugin. The plugin allows the release to be done as a
+side effect of your CI build! It exposes several useful goals like:
+
+- `release`
+- `default`
+- `announce`
+
+It also exposes some convenience goals that roll the above into single goals:
+
+- `major-release`: performs release, default and structured announce
+- `minor-release`: performs release and structured announce, _no_ default
+
+For more details of about this plugin, as well as how to configure it, please
+refer to the [Github Page](https://github.com/sdkman/sdkman-vendor-maven-plugin)
+for the project.
+
+## Broadcast a Structured Message
+
+This will result in a structured message announcement on social media and
+SDKMAN! CLI. The result will look something like:
+`grails 3.0.0 available for download. https://git.io/release`. The url can point
+to the github release page or the version's changelog. This message will be
+announced to the broadcast channel of SDKMAN! CLI, as well as on the
+[@sdkman\_](https://x.com/sdkman_) X feed.
+
+```shell
+curl -X POST \
+-H "Consumer-Key: CONSUMER_KEY" \
+-H "Consumer-Token: CONSUMER_TOKEN" \
+-H "Content-Type: application/json" \
+-H "Accept: application/json" \
+-d '{"candidate": "grails", "version": "3.0.0", "url": "https://git.io/release"}' \
+https://vendors.sdkman.io/announce/struct
+```
