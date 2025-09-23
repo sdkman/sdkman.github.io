@@ -364,7 +364,7 @@ const jdks: JDK[] = [
     id: 'tem',
     vendor: 'Eclipse',
     distribution: 'Temurin',
-    url: 'https://projects.eclipse.org/projects/adoptium.temurin',
+    url: 'https://adoptium.net/',
     architecture: {
       short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
