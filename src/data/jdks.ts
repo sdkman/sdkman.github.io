@@ -317,7 +317,7 @@ const jdks: JDK[] = [
     id: 'sapmchn',
     vendor: 'SAP',
     distribution: 'SapMachine',
-    url: 'https://sap.github.io/SapMachine/',
+    url: 'https://sapmachine.io/',
     architecture: {
       short: [shortArchList.x86_64, shortArchList.arm64],
       long: [
