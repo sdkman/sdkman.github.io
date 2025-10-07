@@ -38,7 +38,7 @@
     "@docusaurus/types": "^3.8.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "prettier": "^3.6.2",
-    "typescript": "~5.9.2"
+    "typescript": "~5.9.3"
   },
   "browserslist": {
     "production": [
