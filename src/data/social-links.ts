@@ -1,4 +1,5 @@
 import {
+  FaBluesky,
   FaDiscord,
   FaGithub,
   FaStackOverflow,
@@ -15,6 +16,11 @@ const socialLinks = [
     icon: FaDiscord,
     href: 'https://discord.gg/y9mVJYVyu4',
     alt: 'Discord',
+  },
+  {
+    icon: FaBluesky,
+    href: 'https://bsky.app/profile/sdkman.io',
+    alt: 'Bluesky',
   },
   {
     icon: FaXTwitter,
