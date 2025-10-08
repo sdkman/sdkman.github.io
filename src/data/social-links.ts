@@ -4,7 +4,6 @@ import {
   FaGithub,
   FaMastodon,
   FaStackOverflow,
-  FaXTwitter,
 } from 'react-icons/fa6';
 
 const socialLinks = [
@@ -27,11 +26,6 @@ const socialLinks = [
     icon: FaMastodon,
     href: 'https://mastodon.social/@sdkman@fosstodon.org',
     alt: 'Mastodon',
-  },
-  {
-    icon: FaXTwitter,
-    href: 'https://x.com/sdkman_',
-    alt: 'X',
   },
   {
     icon: FaStackOverflow,
