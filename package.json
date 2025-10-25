@@ -17,8 +17,8 @@
     "preprocessing:clear": "rm -rf ./preprocessing/out ./src/data/jdks-versions.ts ./src/data/sdks.ts"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.9.1",
-    "@docusaurus/preset-classic": "^3.9.1",
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.18",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.1",
-    "@docusaurus/tsconfig": "^3.9.1",
+    "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.8.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "prettier": "^3.6.2",
