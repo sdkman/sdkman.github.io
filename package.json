@@ -21,7 +21,7 @@
     "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
-    "dayjs": "^1.11.18",
+    "dayjs": "^1.11.19",
     "docusaurus-plugin-sass": "^0.2.6",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
