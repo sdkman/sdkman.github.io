@@ -13,13 +13,40 @@
     text-align: center;
   }
 
+  &Logos {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
   &CommonHausFoundation {
     &Link {
-      margin-bottom: 1.5rem;
       color: inherit;
 
       &:hover {
         color: inherit;
+      }
+    }
+  }
+
+  &DigitalOcean {
+    &Link {
+      color: inherit;
+      display: inline-block;
+      margin-top: -4px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      img {
+        display: block;
+        height: 48px;
+        width: auto;
       }
     }
   }

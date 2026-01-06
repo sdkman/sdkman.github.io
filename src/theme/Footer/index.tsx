@@ -1,4 +1,5 @@
 import Link from '@docusaurus/Link';
+import { useColorMode } from '@docusaurus/theme-common';
 import clsx from 'clsx';
 
 import CommonHausFoundationLogo from '@site/static/assets/img/CF_logo_horizontal_stack_reverse.svg';
@@ -6,16 +7,31 @@ import CommonHausFoundationLogo from '@site/static/assets/img/CF_logo_horizontal
 import styles from './styles.module.scss';
 
 export default function Footer() {
+  const { colorMode } = useColorMode();
+  const digitalOceanBadge =
+    colorMode === 'dark'
+      ? 'https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%201.svg'
+      : 'https://web-platforms.sfo2.cdn.digitaloceanspaces.com/WWW/Badge%202.svg';
+
   return (
     <footer className={styles.footer}>
       <div className={clsx('container', styles.footerContent)}>
-        <Link
-          className={styles.footerCommonHausFoundationLink}
-          href="https://www.commonhaus.org/"
-          aria-label="CommonHaus Foundation"
-        >
-          <CommonHausFoundationLogo width={150} height={32} />
-        </Link>
+        <div className={styles.footerLogos}>
+          <Link
+            className={styles.footerCommonHausFoundationLink}
+            href="https://www.commonhaus.org/"
+            aria-label="CommonHaus Foundation"
+          >
+            <CommonHausFoundationLogo width={150} height={32} />
+          </Link>
+          <Link
+            className={styles.footerDigitalOceanLink}
+            href="https://www.digitalocean.com/?refcode=d99e5747251d&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
+            aria-label="DigitalOcean"
+          >
+            <img src={digitalOceanBadge} alt="DigitalOcean Referral Badge" />
+          </Link>
+        </div>
 
         <div>
           &copy; 2012 - {new Date().getFullYear()} SDKMAN! is Open Source
