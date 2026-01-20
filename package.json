@@ -37,7 +37,7 @@
     "@docusaurus/tsconfig": "^3.9.2",
     "@docusaurus/types": "^3.8.1",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
-    "prettier": "^3.7.4",
+    "prettier": "^3.8.0",
     "typescript": "~5.9.3"
   },
   "browserslist": {
