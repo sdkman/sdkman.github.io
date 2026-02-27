@@ -11,7 +11,7 @@ export default function Hero() {
         <div className={styles.sectionTop}>
           <img
             className={styles.sectionTopImg}
-            src="/assets/img/sdk-man-small-pattern.svg"
+            src="/assets/img/sdkman-pattern.svg"
             alt="SDKMAN! logo"
             width={250}
             height={145}
