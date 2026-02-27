@@ -81,11 +81,11 @@ const config: Config = {
       { name: 'twitter:creator', content: '@sdkman_' },
     ],
     // Replace with your project's social card
-    image: 'assets/img/bubble-logo-sdkman-groovy-color.png',
+    image: 'assets/img/sdkman-logo-bubble.png',
     navbar: {
       logo: {
         alt: 'SDKMAN!',
-        src: 'assets/img/logo.png',
+        src: 'assets/img/sdkman-logo.png',
         width: 44,
         height: 32,
       },
