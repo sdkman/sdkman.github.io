@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 import styles from './styles.module.scss';
 
@@ -41,9 +43,18 @@ export default function Hero() {
             Go on then, paste and run the following in a terminal:
           </p>
 
-          <CodeBlock language="shell">
-            curl -s "https://get.sdkman.io" | bash
-          </CodeBlock>
+          <Tabs groupId="shells" block>
+            <TabItem value="bash" label="bash">
+              <CodeBlock language="shell">
+                curl -s "https://get.sdkman.io" | bash
+              </CodeBlock>
+            </TabItem>
+            <TabItem value="zsh" label="zsh">
+              <CodeBlock language="shell">
+                curl -s "https://get.sdkman.io" | zsh
+              </CodeBlock>
+            </TabItem>
+          </Tabs>
         </div>
       </div>
     </section>
