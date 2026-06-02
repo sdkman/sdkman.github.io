@@ -3,6 +3,8 @@ title: Installation
 ---
 
 import DocsCarbonAds from '@site/src/components/ads/DocsCarbonAds';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 <DocsCarbonAds />
 
@@ -10,10 +12,19 @@ Installing SDKMAN! on UNIX is a breeze. It effortlessly sets up on macOS, Linux
 and Windows (with WSL). Plus, it's compatible with both Bash and ZSH shells.
 
 Just launch a new terminal and type in:
+<Tabs groupId="shells">
+<TabItem value="bash" label="bash">
 
 ```shell
 curl -s "https://get.sdkman.io" | bash
 ```
+</TabItem>
+<TabItem value="zsh" label="zsh">
+```shell
+curl -s "https://get.sdkman.io" | zsh
+```
+</TabItem>
+</Tabs>
 
 Follow the on-screen instructions to wrap up the installation. Afterward, open a
 new terminal or run the following in the same shell:
@@ -92,27 +103,54 @@ Lastly, if you want to install SDKMAN! in a custom location, like
 `/usr/local/sdkman`, make sure you have full access rights and that the folder
 doesn't exist. Export `SDKMAN_DIR` before installing:
 
+<Tabs groupId="shells">
+<TabItem value="bash" label="bash">
 ```shell
 export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | bash
 ```
+</TabItem>
+<TabItem value="zsh" label="zsh">
+```shell
+export SDKMAN_DIR="/usr/local/sdkman" && curl -s "https://get.sdkman.io" | zsh
+```
+</TabItem>
+</Tabs>
 
 ## Install without modifying shell config
 
 And for installs on CI where shell config modification isn't appropriate, add
 `rcupdate=false` as a parameter when downloading the installer:
 
+<Tabs groupId="shells">
+<TabItem value="bash" label="bash">
 ```shell
 curl -s "https://get.sdkman.io?rcupdate=false" | bash
 ```
+</TabItem>
+<TabItem value="zsh" label="zsh">
+```shell
+curl -s "https://get.sdkman.io?rcupdate=false" | zsh
+```
+</TabItem>
+</Tabs>
 
 ## CI Mode
 
 For automated environments like CI/CD pipelines, SDKMAN! offers a dedicated CI
 mode that optimizes the installation for non-interactive use:
+<Tabs groupId="shells">
+<TabItem value="bash" label="bash">
 
 ```shell
 curl -s "https://get.sdkman.io?ci=true" | bash
 ```
+</TabItem>
+<TabItem value="zsh" label="zsh">
+```shell
+curl -s "https://get.sdkman.io?ci=true" | zsh
+```
+</TabItem>
+</Tabs>
 
 CI mode automatically:
 
@@ -122,9 +160,18 @@ CI mode automatically:
   `sdkman_selfupdate_feature=false`)
 
 You can combine this with other parameters as needed:
+<Tabs groupId="shells">
+<TabItem value="bash" label="bash">
 
 ```shell
 curl -s "https://get.sdkman.io?ci=true&rcupdate=false" | bash
 ```
+</TabItem>
+<TabItem value="zsh" label="zsh">
+```shell
+curl -s "https://get.sdkman.io?ci=true&rcupdate=false" | zsh
+```
+</TabItem>
+</Tabs>
 
 That's all there is to it! Now let's dive into [Usage](/usage).
