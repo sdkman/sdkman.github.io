@@ -22,7 +22,7 @@
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.23",
-    "docusaurus-plugin-sass": "^0.2.6",
+    "docusaurus-plugin-sass": "^0.2.7",
     "embla-carousel-auto-scroll": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
     "fetch-jsonp": "^1.4.0",
