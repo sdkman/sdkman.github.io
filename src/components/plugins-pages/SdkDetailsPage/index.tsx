@@ -50,6 +50,14 @@ export default function SdkDetailsPage() {
 
             <div className={clsx('card__body', styles.cardBody)}>
               <Link href={SDK.url}>Website</Link>
+
+              {SDK.defaultVersion && (
+                <div>
+                  <div className={styles.cardSubtitle}>Default version:</div>
+
+                  <div>{SDK.defaultVersion}</div>
+                </div>
+              )}
             </div>
           </div>
         </div>
