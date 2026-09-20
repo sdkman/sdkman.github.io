@@ -7,7 +7,7 @@ import clsx from 'clsx';
 
 import PageCarbonAds from '@site/src/components/ads/PageCarbonAds';
 
-import { getNameFromPath } from '@site/src/lib/utils';
+import { getNameFromPath, stripVersionFromTitle } from '@site/src/lib/utils';
 
 import sdks from '@site/src/data/sdks';
 
@@ -29,12 +29,14 @@ export default function SdkDetailsPage() {
     return <Redirect to="/404/" />;
   }
 
+  const title = stripVersionFromTitle(SDK.title);
+
   return (
-    <Layout title={SDK.title}>
+    <Layout title={title}>
       <PageCarbonAds />
 
       <div className={clsx('container', styles.page)}>
-        <Heading as="h1">{SDK.title}</Heading>
+        <Heading as="h1">{title}</Heading>
 
         <div className={styles.pageContent}>
           <div>
