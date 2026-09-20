@@ -1,50 +1,61 @@
 import { writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
+import type { SDK } from '../../../src/types/sdk';
+
+const CANDIDATES_URL = 'https://state.sdkman.io/candidates';
+
+type Candidate = {
+  candidate: string;
+  name: string;
+  description: string;
+  website_url: string;
+  default?: string;
+};
+
 export default async function generateSDKs() {
-  const sdksData = await fetchSDKs();
-  const sdks = parseSDKs(sdksData);
+  const sdks = parseSDKs(await fetchSDKs());
 
-  try {
-    await writeFile(
-      resolve(process.cwd(), './src/data/sdks.ts'),
-      `const sdks = ${JSON.stringify(sdks, null, 2)};\n\n` +
-        'export default sdks;',
+  await writeFile(
+    resolve(process.cwd(), './src/data/sdks.ts'),
+    `const sdks = ${JSON.stringify(sdks, null, 2)};\n\nexport default sdks;`,
+  );
+}
+
+async function fetchSDKs(): Promise<Candidate[]> {
+  const res = await fetch(CANDIDATES_URL);
+
+  if (!res.ok) {
+    throw new Error(
+      `Failed to fetch ${CANDIDATES_URL}: ${res.status} ${res.statusText}`,
     );
-  } catch (err) {
-    console.error(err);
   }
+
+  const data = await res.json();
+
+  if (!Array.isArray(data) || !data.length) {
+    throw new Error(
+      `Unexpected response from ${CANDIDATES_URL}: expected a non-empty array`,
+    );
+  }
+
+  return data;
 }
 
-async function fetchSDKs() {
-  try {
-    const res = await fetch('https://api.sdkman.io/2/candidates/list');
-
-    return await res.text();
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-function parseSDKs(sdksData: string) {
-  const baseParts = sdksData
-    .split(
-      '--------------------------------------------------------------------------------',
-    )
-    .slice(1, -1);
-
-  return baseParts.map((item) => {
-    const lines = item.slice(1, -1).split('\n');
-    const id = lines.slice(-1)[0].split(' ').slice(-1)[0].trim();
-    const title = `${lines[0].split(')')[0].trim()})`;
-    const url = lines[0].split(')').slice(-1)[0].trim();
-    const description = lines.slice(2, -2).join('\n').trim();
+function parseSDKs(candidates: Candidate[]): SDK[] {
+  return candidates.map((item) => {
+    if (!item.candidate || !item.name || !item.website_url) {
+      throw new Error(
+        `Incomplete candidate from ${CANDIDATES_URL}: ${JSON.stringify(item)}`,
+      );
+    }
 
     return {
-      id,
-      title,
-      url,
-      description,
+      id: item.candidate,
+      title: item.name,
+      url: item.website_url,
+      description: item.description,
+      defaultVersion: item.default,
     };
   });
 }

@@ -3,4 +3,5 @@ export type SDK = {
   title: string;
   url: string;
   description: string;
+  defaultVersion?: string;
 };
