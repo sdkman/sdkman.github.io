@@ -6,6 +6,7 @@ async function run() {
     await Promise.all([generateJDKs(), generateSDKs()]);
   } catch (err) {
     console.error(err);
+    process.exitCode = 1;
   }
 }
 
