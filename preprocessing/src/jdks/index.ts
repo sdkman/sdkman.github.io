@@ -54,10 +54,12 @@ function parseJDKs(data: string) {
     .slice(5, -10)
     .reduce<{ version: string; dist: string }[]>((acc, val) => {
       const rowParts = val.split('|').map((item) => item.trim());
+      const distParts = rowParts[3].split('-');
+      const dist = distParts[distParts.length - 1];
 
       acc.push({
         version: rowParts[2],
-        dist: rowParts[3],
+        dist,
       });
 
       return acc;
